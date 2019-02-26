@@ -1,21 +1,73 @@
-// CodinGameMain.cpp : This file contains the 'main' function. Program execution begins and ends there.
-//
-
 #include "pch.h"
-#include <iostream>
+#include "AsciiArtStringTest.cpp"
 
-int main()
-{
-    std::cout << "Hello World!\n"; 
+namespace CodinGame {
+	int main()
+	{
+		int project;
+		int test_case;
+		int exit = 0;
+
+		std::cout << "Andrea Novati - Tools programming MasterGameDev 2018-2019\n\n";
+
+		std::cout << "1) AsciiArt (medium)\n";
+		std::cout << "2) Mars\n";
+		std::cout << "3) Quit\n\n";
+
+		AsciiArtStringTest *test;
+
+		while (!exit) {
+			std::cout << "Choose Project: ";
+			cin >> project;
+			switch (project) {
+			case 1: {
+
+
+				cin >> test_case;
+
+				switch (test_case) {
+				case 1: {
+					test = new AsciiArtStringTest("AsciiArt01.txt");
+					break;
+				}
+				case 2: {
+					break;
+				}
+				case 3: {
+					break;
+				}
+				case 4: {
+					break;
+				}
+				case 5: {
+					break;
+				}
+				default: {
+					std::cout << "\nYOUR ARGUMENT HAS NEVER BEEN SO INVALID";
+				}
+				};
+
+
+
+				break;
+			}
+			case 2: {
+				cin >> test_case;
+
+				//break;
+			}
+			case 3: {
+				std::cout << "\nQUIT";
+				exit = 1;
+				break;
+			}
+			default: {
+				std::cout << "\nYOUR ARGUMENT IS INVALID";
+			}
+			};
+
+			test->Execute();
+
+		}
+	}
 }
-
-// Run program: Ctrl + F5 or Debug > Start Without Debugging menu
-// Debug program: F5 or Debug > Start Debugging menu
-
-// Tips for Getting Started: 
-//   1. Use the Solution Explorer window to add/manage files
-//   2. Use the Team Explorer window to connect to source control
-//   3. Use the Output window to see build output and other messages
-//   4. Use the Error List window to view errors
-//   5. Go to Project > Add New Item to create new code files, or Project > Add Existing Item to add existing code files to the project
-//   6. In the future, to open this project again, go to File > Open > Project and select the .sln file
