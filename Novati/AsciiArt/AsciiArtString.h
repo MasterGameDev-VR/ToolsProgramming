@@ -2,6 +2,8 @@
 #include "stdafx.h"
 #include "Letter.h"
 
+using namespace std;
+
 namespace AsciiArt {
 
 	class AsciiArtString {
@@ -35,11 +37,11 @@ namespace AsciiArt {
 		Letter qm;
 		int _L;
 		int _H;
-		std::string _T;
-		std::vector<std::string> _INPUT_ROWS;
+		string _T;
+		vector<string> _INPUT_ROWS;
 
 	public:
-		AsciiArtString(int L, int H, std::string T, std::vector<std::string> value);
+		AsciiArtString(int L, int H, string T, vector<string> INPUT_ROWS);
 		virtual ~AsciiArtString();
 		virtual void print();
 		virtual void parse();

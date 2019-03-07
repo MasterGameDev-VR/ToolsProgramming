@@ -5,14 +5,15 @@
 #pragma once
 
 #include "targetver.h"
-#include <vector>
-#include <string>
-#include <iostream>
-#include <algorithm>
-#include <fstream>
+
 
 #define WIN32_LEAN_AND_MEAN             // Exclude rarely-used stuff from Windows headers
 
 
 
 // reference additional headers your program requires here
+#include <vector>
+#include <string>
+#include <iostream>
+#include <algorithm>
+#include <fstream>

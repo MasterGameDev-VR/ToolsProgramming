@@ -1,4 +1,3 @@
-#pragma once
 #include "stdafx.h"
 #include "Letter.h"
 
@@ -11,7 +10,7 @@ namespace AsciiArt {
 	}
 
 	void Letter::setRow(std::string row, int row_num) {
-		_rows.insert(_rows.begin()+row_num, row);
+		_rows.insert(_rows.begin() + row_num, row);
 	}
 
 	std::string Letter::getRow(int num) {

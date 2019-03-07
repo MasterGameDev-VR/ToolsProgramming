@@ -4,7 +4,7 @@
 
 namespace AsciiArt {
 
-	class Letter : Draw {
+	class Letter : public Draw {
 	protected:
 		std::vector<std::string> _rows;
 

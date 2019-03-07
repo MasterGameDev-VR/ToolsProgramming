@@ -151,6 +151,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="AsciiArtStringTest.h" />
     <ClInclude Include="pch.h" />
   </ItemGroup>
   <ItemGroup>
@@ -169,6 +170,11 @@
     <Text Include="AsciiArt03.txt" />
     <Text Include="AsciiArt04.txt" />
     <Text Include="AsciiArt05.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="AsciiArt\AsciiArt.vcxproj">
+      <Project>{eeaf4daa-9f57-489e-869a-27207172494d}</Project>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

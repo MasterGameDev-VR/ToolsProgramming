@@ -1,27 +1,27 @@
-#pragma once
 #include "stdafx.h"
-#include "Draw.cpp"
-#include "Letter.cpp"
 #include "AsciiArtString.h"
 
 using namespace std;
 
-namespace AsciiArt 
+namespace AsciiArt
 {
-	AsciiArtString::AsciiArtString(int L,int H,std::string T, std::vector<std::string> value) {
+	AsciiArtString::AsciiArtString(int L, int H, string T, vector<string> INPUT_ROWS) {
 		_L = L;
 		_H = H;
 		_T = T;
-		_INPUT_ROWS = value;
+		_INPUT_ROWS = INPUT_ROWS;
 	}
 	
+	AsciiArtString::~AsciiArtString() {
+	}
+
 	string* split(string src, int len) {
-		int chunks = src.length() / len;
+		size_t chunks = src.length() / len;
 
 		string* result = new string[chunks];
 
 		for (int i = 0; i < chunks; i++)
-			result[i] = src.substr(i*len, (i + 1) * len );
+			result[i] = src.substr(i*len, (i + 1) * len);
 
 		return result;
 	}
@@ -63,7 +63,7 @@ namespace AsciiArt
 	}
 
 	void AsciiArtString::print() {
-		const int length = _T.length();
+		const size_t length = _T.length();
 
 		const char* phrase = _T.c_str();
 

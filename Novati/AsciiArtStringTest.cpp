@@ -1,24 +1,23 @@
 #include "pch.h"
-#include "AsciiArt/AsciiArtString.cpp"
+#include "AsciiArtStringTest.h"
 
 using namespace AsciiArt;
+using namespace std;
 
 namespace CodinGame {
 
-	class AsciiArtStringTest {
-	protected:
-		AsciiArtString *str;
-		std::string& _INPUT_FILENAME;
-	public:
-		AsciiArtStringTest() {
-			
+	    AsciiArtStringTest::AsciiArtStringTest() {
 		}
 
-		~AsciiArtStringTest() {
+		AsciiArtStringTest::~AsciiArtStringTest() {
 			delete str;
 		}
 
-		AsciiArtStringTest( const std::string &INPUT_FILENAME ) {
+		AsciiArtStringTest::AsciiArtStringTest(const char* INPUT_FILENAME) {
+			Init(string(INPUT_FILENAME));
+		}
+
+		void AsciiArtStringTest::Init(const string INPUT_FILENAME) {
 			int L, H;
 
 			_INPUT_FILENAME = INPUT_FILENAME;
@@ -50,10 +49,13 @@ namespace CodinGame {
 			str = new  AsciiArtString(L, H, T, INPUT_ROWS);
 		}
 
-		void Execute() {
+		AsciiArtStringTest::AsciiArtStringTest( const string INPUT_FILENAME ) {
+			Init(INPUT_FILENAME);
+		}
+
+		void AsciiArtStringTest::Execute() {
 			cout << "Execute " << _INPUT_FILENAME << "\n";
 
 			str->print();
 		}
-	};
 }

@@ -1,26 +1,30 @@
 #include "pch.h"
-#include "AsciiArtStringTest.cpp"
+#include <iostream>
+#include "AsciiArtStringTest.h"
 
-namespace CodinGame {
+using namespace std;
+using namespace CodinGame;
+
 	int main()
 	{
 		int project;
 		int test_case;
 		int exit = 0;
 
-		std::cout << "Andrea Novati - Tools programming MasterGameDev 2018-2019\n\n";
+		cout << "Andrea Novati - Tools programming MasterGameDev 2018-2019\n\n";
 
-		std::cout << "1) AsciiArt (medium)\n";
-		std::cout << "2) Mars\n";
-		std::cout << "3) Quit\n\n";
+		cout << "1) AsciiArt (medium)\n";
+		cout << "2) Mars\n";
+		cout << "3) Quit\n\n";
 
-		AsciiArtStringTest *test;
+		AsciiArtStringTest *test = NULL;
 
 		while (!exit) {
-			std::cout << "Choose Project: ";
+			cout << "Choose Project: ";
 			cin >> project;
 			switch (project) {
 			case 1: {
+				cout << "Choose a test case [1-5]: ";
 
 
 				cin >> test_case;
@@ -31,19 +35,23 @@ namespace CodinGame {
 					break;
 				}
 				case 2: {
+					test = new AsciiArtStringTest("AsciiArt02.txt");
 					break;
 				}
 				case 3: {
+					test = new AsciiArtStringTest("AsciiArt03.txt");
 					break;
 				}
 				case 4: {
+					test = new AsciiArtStringTest("AsciiArt04.txt");
 					break;
 				}
 				case 5: {
+					test = new AsciiArtStringTest("AsciiArt05.txt");
 					break;
 				}
 				default: {
-					std::cout << "\nYOUR ARGUMENT HAS NEVER BEEN SO INVALID";
+					cout << "\nYOUR ARGUMENT HAS NEVER BEEN SO INVALID";
 				}
 				};
 
@@ -57,17 +65,19 @@ namespace CodinGame {
 				//break;
 			}
 			case 3: {
-				std::cout << "\nQUIT";
+				cout << "\nQUIT";
 				exit = 1;
 				break;
 			}
 			default: {
-				std::cout << "\nYOUR ARGUMENT IS INVALID";
+				cout << "\nYOUR ARGUMENT IS INVALID";
 			}
 			};
 
 			test->Execute();
-
+			
+			
 		}
+
+		return 0;
 	}
-}
