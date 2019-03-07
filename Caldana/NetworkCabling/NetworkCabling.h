@@ -15,21 +15,7 @@ namespace NetworkCablingNS
 	public:
 		NetworkCabling(string fileName)
 		{
-			ifstream input(fileName);
-			auto cinbuf = cin.rdbuf(input.rdbuf());
-			cin >> N; cin.ignore();
-			for (int i = 0; i < N; i++)
-			{
-				cin >> x_positions[i] >> y_positions[i]; cin.ignore();
-				if (x_positions[i] < x_min)
-					x_min = x_positions[i];
-				if (x_positions[i] > x_max)
-					x_max = x_positions[i];
-				if (y_positions[i] < y_min)
-					y_min = y_positions[i];
-				if (y_positions[i] > y_max)
-					y_max = y_positions[i];
-			}
+			SetValues(fileName);
 		}
 		~NetworkCabling(){}
 		void Execute()
@@ -51,6 +37,24 @@ namespace NetworkCablingNS
 
 
 			cout << solution + (x_max - x_min) << endl;
+		}
+		void SetValues(string fileName)
+		{
+			ifstream input(fileName);
+			auto cinbuf = cin.rdbuf(input.rdbuf());
+			cin >> N; cin.ignore();
+			for (int i = 0; i < N; i++)
+			{
+				cin >> x_positions[i] >> y_positions[i]; cin.ignore();
+				if (x_positions[i] < x_min)
+					x_min = x_positions[i];
+				if (x_positions[i] > x_max)
+					x_max = x_positions[i];
+				if (y_positions[i] < y_min)
+					y_min = y_positions[i];
+				if (y_positions[i] > y_max)
+					y_max = y_positions[i];
+			}
 		}
 	private:
 		int N;

@@ -14,9 +14,7 @@ namespace NumberOfLettersInANumberNS
 
 		NumberOfLettersInANumber(string fileName)
 		{
-			ifstream input(fileName);
-			auto cinbuf = cin.rdbuf(input.rdbuf());
-			cin >> start >> n; cin.ignore();
+			SetValues(fileName);
 		}
 
 		~NumberOfLettersInANumber(){}
@@ -49,6 +47,12 @@ namespace NumberOfLettersInANumberNS
 					counter += 4;
 			}
 			return counter;
+		}
+		void SetValues(string fileName)
+		{
+			ifstream input(fileName);
+			auto cinbuf = cin.rdbuf(input.rdbuf());
+			cin >> start >> n; cin.ignore();
 		}
 
 	private:
