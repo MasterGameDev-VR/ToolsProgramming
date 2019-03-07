@@ -7,6 +7,7 @@ using namespace std;
 namespace CodinGame {
 
 	    AsciiArtStringTest::AsciiArtStringTest() {
+
 		}
 
 		AsciiArtStringTest::~AsciiArtStringTest() {
@@ -28,17 +29,22 @@ namespace CodinGame {
 
 			ifstream input(_INPUT_FILENAME);
 
+			//auto cinbuf = cin.rdbuf(input.rdbuf());
+
 			input >> L;
 			input >> H;
 			input >> T;
 
+			cout << "L:" << L << "\n";
 			cout << "H:" << H << "\n";
-			cout << "H:" << L << "\n";
 			cout << "T:" << T << "\n" << "\n";
 
-			for (int i = 0; i < H; i++) {
+			for (int i = 0; i <= H; i++) {
 				string ROW;
-				input >> ROW;
+				getline(input, ROW);
+				if (ROW == "")
+					continue;
+				
 				INPUT_ROWS.push_back(ROW);
 			}
 

@@ -10,6 +10,7 @@ namespace AsciiArt
 		_H = H;
 		_T = T;
 		_INPUT_ROWS = INPUT_ROWS;
+		parse();
 	}
 	
 	AsciiArtString::~AsciiArtString() {
@@ -18,11 +19,17 @@ namespace AsciiArt
 	string* split(string src, int len) {
 		size_t chunks = src.length() / len;
 
+		if (chunks == 0)
+			return new string("");
+
 		string* result = new string[chunks];
 
-		for (int i = 0; i < chunks; i++)
-			result[i] = src.substr(i*len, (i + 1) * len);
-
+		for (int i = 0; i < chunks; i++) {
+			int start = i * len;
+			//int end = (i + 1) * len-1;
+			string chunk = src.substr(start, len);
+			result[i] = chunk;
+		}
 		return result;
 	}
 
@@ -154,10 +161,10 @@ namespace AsciiArt
 					row_N = row_N + qm.getRow(row_index);
 				}
 
-				cout << row_N;
+			
 			}
-
-			delete phrase;
+			cout << row_N << "\r\n";
+			//delete phrase;
 		}
 	}
 }

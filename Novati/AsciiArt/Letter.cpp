@@ -15,7 +15,7 @@ namespace AsciiArt {
 
 	std::string Letter::getRow(int num) {
 		if (num >= _rows.size())
-			return NULL;
+			return "";
 
 		return _rows[num];
 	}
