@@ -2,6 +2,8 @@
 #include <string>
 #include <vector>
 
+using namespace std;
+
 struct MayanNumber
 {
 	vector<string> digit;
@@ -19,9 +21,10 @@ private:
 
 	int S2;
 	vector<MayanNumber> secondMayanNumber;
+	string operation;
 
 public:
-	MayanCalculation(char *fileName);
+	MayanCalculation(string fileName);
 
 	void Execute();
 };

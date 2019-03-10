@@ -1,15 +1,15 @@
 #include "stdafx.h"
-#include "MayanCalculation.h"
-
 #include <iostream>
 #include <fstream>
+#include "MayanCalculation.h"
+
 
 using namespace std;
 
-MayanCalculation::MayanCalculation(char *fileName)
+MayanCalculation::MayanCalculation(string fileName)
 {
-	std::ifstream in(fileName);
-	auto cinbuf = std::cin.rdbuf(in.rdbuf());
+	ifstream in(fileName);
+	auto cinbuf = cin.rdbuf(in.rdbuf());
 
 	cin >> L >> H; cin.ignore();
 	for (int i = 0; i < 20; ++i)
@@ -40,6 +40,7 @@ MayanCalculation::MayanCalculation(char *fileName)
 		cin >> num2Line; cin.ignore();
 		secondMayanNumber[i / H].digit.push_back(num2Line);
 	}
+	cin >> operation; cin.ignore();
 }
 
 void MayanCalculation::Execute()
@@ -70,16 +71,15 @@ void MayanCalculation::Execute()
 			}
 		}
 
-	string operation;
-	cin >> operation; cin.ignore();
+
 	if (operation.compare("+") == 0)
 		firstNumber += secondNumber;
 	else if (operation.compare("-") == 0)
 		firstNumber -= secondNumber;
 	else if (operation.compare("*") == 0)
-		secondNumber *= firstNumber;
+		firstNumber *= secondNumber;
 	else if (operation.compare("/") == 0)
-		secondNumber /= firstNumber;
+		firstNumber /= secondNumber;
 
 	vector<int> digits;
 	double power = 1.0;
@@ -92,7 +92,13 @@ void MayanCalculation::Execute()
 	} while ((int)firstNumber > 0);
 
 
-	for (auto digit : digits)
+	/*for (auto digit : digits)
 		for (int i = 0; i < H; ++i)
-			cout << numbers[digit].digit[i] << endl;
+			cout << numbers[digit].digit[i] << endl;*/
+	for (vector<int>::reverse_iterator it = digits.rbegin(); it != digits.rend(); ++it)
+		for (int i = 0; i < H; ++i)
+		cout << numbers[*it].digit[i] << endl;
+	
+
+
 }
