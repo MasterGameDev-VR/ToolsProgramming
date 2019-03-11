@@ -9,6 +9,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "BenderEpisode1", "BenderEpi
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TheTravellingSalesmanProblem", "TheTravellingSalesmanProblem\TheTravellingSalesmanProblem.vcxproj", "{A0410981-4CCB-47D8-8460-61DE5AC4D6E0}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ASCIIArt", "ASCIIArt\ASCIIArt.vcxproj", "{59730E73-8C62-4643-8289-C50BFD57855E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -41,6 +43,14 @@ Global
 		{A0410981-4CCB-47D8-8460-61DE5AC4D6E0}.Release|x64.Build.0 = Release|x64
 		{A0410981-4CCB-47D8-8460-61DE5AC4D6E0}.Release|x86.ActiveCfg = Release|Win32
 		{A0410981-4CCB-47D8-8460-61DE5AC4D6E0}.Release|x86.Build.0 = Release|Win32
+		{59730E73-8C62-4643-8289-C50BFD57855E}.Debug|x64.ActiveCfg = Debug|x64
+		{59730E73-8C62-4643-8289-C50BFD57855E}.Debug|x64.Build.0 = Debug|x64
+		{59730E73-8C62-4643-8289-C50BFD57855E}.Debug|x86.ActiveCfg = Debug|Win32
+		{59730E73-8C62-4643-8289-C50BFD57855E}.Debug|x86.Build.0 = Debug|Win32
+		{59730E73-8C62-4643-8289-C50BFD57855E}.Release|x64.ActiveCfg = Release|x64
+		{59730E73-8C62-4643-8289-C50BFD57855E}.Release|x64.Build.0 = Release|x64
+		{59730E73-8C62-4643-8289-C50BFD57855E}.Release|x86.ActiveCfg = Release|Win32
+		{59730E73-8C62-4643-8289-C50BFD57855E}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

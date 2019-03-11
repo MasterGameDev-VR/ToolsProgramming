@@ -5,6 +5,7 @@
 #include <iostream>
 #include "..\BenderEpisode1\BenderEpisode1.h"
 #include "..\TheTravellingSalesmanProblem\TheTravellingSalesmanProblem.h"
+#include "..\ASCIIArt\ASCIIArt.h"
 
 using std::cin;
 using std::cout;
@@ -12,12 +13,14 @@ using std::endl;
 
 void BenderProblem();
 void SalesmanProblem();
+void ASCIIArtProblem();
 int SelectCase(int maxCase);
 
 int main() {
 		cout << "Federico Ciardi - Tools programming" << endl;
 		cout << "1) Bender - Episode 1" << endl;
 		cout << "2) The Travelling Salesman Problem" << endl;
+		cout << "3) ASCII Art" << endl;
 		cout << "0) Exit" << endl;
 
 		cout << endl;
@@ -34,6 +37,9 @@ int main() {
 			break;
 		case 2:
 			SalesmanProblem();
+			break;
+		case 3:
+			ASCIIArtProblem();
 			break;
 		default:
 			cout << "ID inserito non esistente!" << endl;
@@ -53,6 +59,12 @@ void SalesmanProblem() {
 	int caseNumber = SelectCase(4);
 	TheTravellingSalesmanProblem salesmanProblem{ "..\\TheTravellingSalesmanProblem\\Tests\\TheTravellingSalesmanProblem-" + std::to_string(caseNumber) + ".txt" };
 	salesmanProblem.Execute();
+}
+
+void ASCIIArtProblem() {
+	int caseNumber = SelectCase(5);
+	ASCIIArt asciiArt{ "..\\ASCIIArt\\Tests\\ASCIIArt-" + std::to_string(caseNumber) + ".txt" };
+	asciiArt.Execute();
 }
 
 int SelectCase(int maxCase) {
