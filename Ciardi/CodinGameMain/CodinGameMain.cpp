@@ -3,19 +3,46 @@
 
 #include "pch.h"
 #include <iostream>
+#include "..\BenderEpisode1\BenderEpisode1.h"
 
-int main()
-{
-    std::cout << "Hello World!\n"; 
+using std::cin;
+using std::cout;
+using std::endl;
+
+void BenderProblem();
+
+int main() {
+		cout << "Federico Ciardi - Tools programming" << endl;
+		cout << "1) Bender - Episode 1" << endl;
+		cout << "2)" << endl;
+		cout << "0) Exit" << endl;
+
+		cout << endl;
+		cout << "Inserire ID: ";
+
+		int choice;
+		cin >> choice;
+
+		switch (choice) {
+		case 0:
+			return 0;
+		case 1:
+			BenderProblem();
+			break;
+		case 2:
+			break;
+		default:
+			cout << "ID inserito non esistente!" << endl;
+		}
+
+		system("PAUSE");
 }
 
-// Run program: Ctrl + F5 or Debug > Start Without Debugging menu
-// Debug program: F5 or Debug > Start Debugging menu
 
-// Tips for Getting Started: 
-//   1. Use the Solution Explorer window to add/manage files
-//   2. Use the Team Explorer window to connect to source control
-//   3. Use the Output window to see build output and other messages
-//   4. Use the Error List window to view errors
-//   5. Go to Project > Add New Item to create new code files, or Project > Add Existing Item to add existing code files to the project
-//   6. In the future, to open this project again, go to File > Open > Project and select the .sln file
+void BenderProblem() {
+	for (int caseNumber = 1; caseNumber <= 12; caseNumber++) {
+		BenderEpisode1 benderEpisode1{ "..\\BenderEpisode1\\Tests\\BenderEpisode1-" + std::to_string(caseNumber) + ".txt" };
+		benderEpisode1.Execute();
+	}
+}
+
