@@ -1,42 +1,42 @@
 ﻿  stdafx.cpp
   AStar.cpp
   dllmain.cpp
-d:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.16.27023\include\xstddef(141): error C2678: binary '<': no operator found which takes a left-hand operand of type 'const _Ty' (or there is no acceptable conversion)
+c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.16.27023\include\xstddef(141): error C2678: binary '<': no operator found which takes a left-hand operand of type 'const _Ty' (or there is no acceptable conversion)
           with
           [
               _Ty=AStarNode
           ]
-  d:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.16.27023\include\system_error(319): note: could be 'bool std::operator <(const std::error_condition &,const std::error_condition &) noexcept'
-  d:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.16.27023\include\system_error(312): note: or       'bool std::operator <(const std::error_code &,const std::error_code &) noexcept'
-  d:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.16.27023\include\xstddef(141): note: while trying to match the argument list '(const _Ty, const _Ty)'
+  c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.16.27023\include\system_error(319): note: could be 'bool std::operator <(const std::error_condition &,const std::error_condition &) noexcept'
+  c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.16.27023\include\system_error(312): note: or       'bool std::operator <(const std::error_code &,const std::error_code &) noexcept'
+  c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.16.27023\include\xstddef(141): note: while trying to match the argument list '(const _Ty, const _Ty)'
           with
           [
               _Ty=AStarNode
           ]
-  d:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.16.27023\include\xstddef(140): note: while compiling class template member function 'bool std::less<_Kty>::operator ()(const _Ty &,const _Ty &) const'
-          with
-          [
-              _Kty=AStarNode,
-              _Ty=AStarNode
-          ]
-  d:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.16.27023\include\xutility(1110): note: see reference to function template instantiation 'bool std::less<_Kty>::operator ()(const _Ty &,const _Ty &) const' being compiled
+  c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.16.27023\include\xstddef(140): note: while compiling class template member function 'bool std::less<_Kty>::operator ()(const _Ty &,const _Ty &) const'
           with
           [
               _Kty=AStarNode,
               _Ty=AStarNode
           ]
-  d:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.16.27023\include\xutility(264): note: see reference to class template instantiation 'std::less<_Kty>' being compiled
+  c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.16.27023\include\xutility(1110): note: see reference to function template instantiation 'bool std::less<_Kty>::operator ()(const _Ty &,const _Ty &) const' being compiled
+          with
+          [
+              _Kty=AStarNode,
+              _Ty=AStarNode
+          ]
+  c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.16.27023\include\xutility(264): note: see reference to class template instantiation 'std::less<_Kty>' being compiled
           with
           [
               _Kty=AStarNode
           ]
-  d:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.16.27023\include\xutility(264): note: see reference to variable template 'const bool is_empty_v<std::less<AStarNode> >' being compiled
-  d:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.16.27023\include\xtree(1032): note: see reference to class template instantiation 'std::_Tree_comp_alloc<_Traits>' being compiled
+  c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.16.27023\include\xutility(264): note: see reference to variable template 'const bool is_empty_v<std::less<AStarNode> >' being compiled
+  c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.16.27023\include\xtree(1032): note: see reference to class template instantiation 'std::_Tree_comp_alloc<_Traits>' being compiled
           with
           [
               _Traits=std::_Tmap_traits<AStarNode,AStarNode,std::less<AStarNode>,std::allocator<std::pair<const AStarNode,AStarNode>>,false>
           ]
-  d:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.16.27023\include\map(82): note: see reference to class template instantiation 'std::_Tree<std::_Tmap_traits<_Kty,_Ty,_Pr,_Alloc,false>>' being compiled
+  c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.16.27023\include\map(82): note: see reference to class template instantiation 'std::_Tree<std::_Tmap_traits<_Kty,_Ty,_Pr,_Alloc,false>>' being compiled
           with
           [
               _Kty=AStarNode,
@@ -44,7 +44,7 @@ d:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.1
               _Pr=std::less<AStarNode>,
               _Alloc=std::allocator<std::pair<const AStarNode,AStarNode>>
           ]
-  d:\repositorygit\toolsprogramming\novati\astar\dllmain.cpp(23): note: see reference to class template instantiation 'std::map<AStarNode,AStarNode,std::less<_Kty>,std::allocator<std::pair<const _Kty,_Ty>>>' being compiled
+  d:\repo\toolsprogramming\novati\astar\dllmain.cpp(23): note: see reference to class template instantiation 'std::map<AStarNode,AStarNode,std::less<_Kty>,std::allocator<std::pair<const _Kty,_Ty>>>' being compiled
           with
           [
               _Kty=AStarNode,

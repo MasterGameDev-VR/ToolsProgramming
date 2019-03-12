@@ -110,6 +110,8 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>GameOfLife.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>.\GameOfLife\$(IntDir);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -152,11 +154,13 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="AsciiArtStringTest.h" />
+    <ClInclude Include="GameOfLifeTest.h" />
     <ClInclude Include="pch.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AsciiArtStringTest.cpp" />
     <ClCompile Include="CodinGameMain.cpp" />
+    <ClCompile Include="GameOfLifeTest.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
@@ -170,10 +174,20 @@
     <Text Include="AsciiArt03.txt" />
     <Text Include="AsciiArt04.txt" />
     <Text Include="AsciiArt05.txt" />
+    <Text Include="C:\Users\andrea\Desktop\GameOfLife01.txt" />
+    <Text Include="C:\Users\andrea\Desktop\GameOfLife02.txt" />
+    <Text Include="C:\Users\andrea\Desktop\GameOfLife03.txt" />
+    <Text Include="C:\Users\andrea\Desktop\GameOfLife04.txt" />
+    <Text Include="C:\Users\andrea\Desktop\GameOfLife05.txt" />
+    <Text Include="C:\Users\andrea\Desktop\GameOfLife06.txt" />
+    <Text Include="C:\Users\andrea\Desktop\GameOfLife07.txt" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="AsciiArt\AsciiArt.vcxproj">
       <Project>{eeaf4daa-9f57-489e-869a-27207172494d}</Project>
+    </ProjectReference>
+    <ProjectReference Include="GameOfLife\GameOfLife.vcxproj">
+      <Project>{2a109dba-16f7-41a6-a837-a3d9e1ab1204}</Project>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

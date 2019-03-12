@@ -1,6 +1,7 @@
 #include "pch.h"
 #include <iostream>
 #include "AsciiArtStringTest.h"
+#include "GameOfLifeTest.h"
 
 using namespace std;
 using namespace CodinGame;
@@ -15,14 +16,14 @@ using namespace CodinGame;
 
 		cout << "1) AsciiArt (easy)\n";
 		cout << "2) A_Star (medium)\n";
-		cout << "3) ???    (medium)\n";
+		cout << "3) GameOfLife (medium)\n";
 		cout << "3) Quit\n\n";
 
-		AsciiArtStringTest *test = NULL;
 		int test_selected = 0;
 		while (!exit) {
 			cout << "Choose Project: ";
 			cin >> project;
+			AsciiArtStringTest *test = NULL;
 
 			switch (project) {
 			case 1: {
@@ -64,12 +65,70 @@ using namespace CodinGame;
 					break;
 				}
 				};
+
+				if (test_selected == 1)
+					test->Execute();
 				break;
 			}
 			case 2: {
+				cout << "Choose a test case [1-7]: ";
 				cin >> test_case;
+				GameOfLifeTest *test1 = NULL;
 
-				//break;
+				switch (test_case) {
+				case 1: {
+					test1 = new GameOfLifeTest("GameOfLife01.txt");
+					test_selected = 1;
+
+					break;
+				}
+				case 2: {
+					test1 = new GameOfLifeTest("GameOfLife02.txt");
+					test_selected = 1;
+
+					break;
+				}
+				case 3: {
+					test1 = new GameOfLifeTest("GameOfLife03.txt");
+					test_selected = 1;
+
+					break;
+				}
+				case 4: {
+					test1 = new GameOfLifeTest("GameOfLife04.txt");
+					test_selected = 1;
+
+					break;
+				}
+				case 5: {
+					test1 = new GameOfLifeTest("GameOfLife05.txt");
+					test_selected = 1;
+
+					break;
+				}
+				case 6: {
+					test1 = new GameOfLifeTest("GameOfLife06.txt");
+					test_selected = 1;
+
+					break;
+				}
+				case 7: {
+					test1 = new GameOfLifeTest("GameOfLife07.txt");
+					test_selected = 1;
+
+					break;
+				}
+				default: {
+					cout << "\nYOUR ARGUMENT HAS NEVER BEEN SO INVALID";
+					break;
+				}
+				};
+				
+				
+				if (test_selected == 1)
+					test1->Execute();
+
+				break;
 			}
 			case 3: {
 				cout << "\nQUIT";
@@ -82,8 +141,6 @@ using namespace CodinGame;
 			}
 			};
 
-			if ( test_selected == 1 )
-				test->Execute();
 			
 		}
 
