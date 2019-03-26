@@ -16,36 +16,44 @@ void SalesmanProblem();
 void ASCIIArtProblem();
 int SelectCase(int maxCase);
 
+
+
 int main() {
-		cout << "Federico Ciardi - Tools programming" << endl;
-		cout << "1) Bender - Episode 1" << endl;
-		cout << "2) The Travelling Salesman Problem" << endl;
-		cout << "3) ASCII Art" << endl;
-		cout << "0) Exit" << endl;
+	std::streambuf *backup;
+	backup = std::cin.rdbuf();
 
-		cout << endl;
-		cout << "Inserire ID: ";
+		while (true) {
+			cin.rdbuf(backup);
 
-		int choice;
-		cin >> choice;
+			cout << "Federico Ciardi - Tools programming" << endl;
+			cout << "1) Bender - Episode 1" << endl;
+			cout << "2) The Travelling Salesman Problem" << endl;
+			cout << "3) ASCII Art" << endl;
+			cout << "0) Exit" << endl;
 
-		switch (choice) {
-		case 0:
-			return 0;
-		case 1:
-			BenderProblem();
-			break;
-		case 2:
-			SalesmanProblem();
-			break;
-		case 3:
-			ASCIIArtProblem();
-			break;
-		default:
-			cout << "ID inserito non esistente!" << endl;
+			cout << endl;
+			cout << "Inserire ID: ";
+
+			int selection;
+			cin >> selection;
+
+			switch (selection) {
+			case 0:
+				return 0;
+			case 1:
+				BenderProblem();
+				break;
+			case 2:
+				SalesmanProblem();
+				break;
+			case 3:
+				ASCIIArtProblem();
+				break;
+			default:
+				cout << "ID inserito non esistente!" << endl;
+			}
+			cout << endl;
 		}
-
-		system("PAUSE");
 }
 
 
@@ -72,7 +80,8 @@ int SelectCase(int maxCase) {
 	while (true) {
 		cout << "Inserire ID testcase (da 1 a " + std::to_string(maxCase) + "): ";
 		cin >> choice;
-		if (choice >= 1 || choice <= maxCase) {
+		cin.ignore();
+		if (choice >= 1 && choice <= maxCase) {
 			return choice;
 		}
 	}
