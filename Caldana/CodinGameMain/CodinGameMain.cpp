@@ -3,9 +3,9 @@
 
 #include "pch.h"
 #include <iostream>
-#include "..\NumberOfLettersInANumber\NumberOfLettersInANumber.h"
-#include "..\NetworkCabling\NetworkCabling.h"
-#include "..\..\Zamprogno\MayanCalculation\MayanCalculation.cpp"
+#include "NumberOfLettersInANumber.h"
+#include "NetworkCabling.h"
+#include "MayanCalculation.h"
 
 
 using namespace std;
@@ -58,7 +58,7 @@ int main()
 		while (test3 <= numTest3)
 		{
 			testPath = "..\\Test\\MayanCalculation\\MayanCalculation_0" + to_string(test3) + ext;
-			MayanCalculation instance3(testPath);
+			MayanCalculation instance3((char*)testPath.c_str());
 			cout << "Output Test " << test3 << ": \n";
 			instance3.Execute();
 			test3++;

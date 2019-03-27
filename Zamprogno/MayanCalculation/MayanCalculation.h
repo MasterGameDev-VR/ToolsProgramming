@@ -24,7 +24,7 @@ private:
 	string operation;
 
 public:
-	MayanCalculation(string fileName);
+	MayanCalculation(char* fileName);
 
 	void Execute();
 };

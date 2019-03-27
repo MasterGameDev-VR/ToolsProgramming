@@ -6,7 +6,7 @@
 
 using namespace std;
 
-MayanCalculation::MayanCalculation(string fileName)
+MayanCalculation::MayanCalculation(char* fileName)
 {
 	ifstream in(fileName);
 	auto cinbuf = cin.rdbuf(in.rdbuf());

@@ -91,12 +91,13 @@
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
-      <AdditionalIncludeDirectories>C:\Users\ciald\Desktop\Master-GitHub\ToolsProgramming\Zamprogno\MayanCalculation;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\ciald\Desktop\Master-GitHub\ToolsProgramming\Caldana\NumberOfLettersInANumber;C:\Users\ciald\Desktop\Master-GitHub\ToolsProgramming\Caldana\NetworkCabling;C:\Users\ciald\Desktop\Master-GitHub\ToolsProgramming\Zamprogno\MayanCalculation;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>C:\Users\ciald\Desktop\Master-GitHub\ToolsProgramming\Caldana\Debug;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>MayanCalculation.lib;NetworkCabling.lib;NumberOfLettersInANumber.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
