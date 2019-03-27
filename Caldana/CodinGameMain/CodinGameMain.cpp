@@ -3,9 +3,8 @@
 
 #include "pch.h"
 #include <iostream>
-#include "..\NumberOfLettersInANumber\NumberOfLettersInANumber.h"
-#include "..\NetworkCabling\NetworkCabling.h"
-
+#include "NetworkCabling.h"
+#include "NumberOfLettersInANumber.h"
 using namespace std;
 
 

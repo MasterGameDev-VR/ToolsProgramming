@@ -20,7 +20,7 @@
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
-    <ProjectGuid>{3E6DFEB0-74CD-4C59-A70E-250CE1E3ED6F}</ProjectGuid>
+    <ProjectGuid>{78CBF37C-920C-42DB-B311-3C23D30F4BEF}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>NetworkCabling</RootNamespace>
     <WindowsTargetPlatformVersion>10.0.17763.0</WindowsTargetPlatformVersion>
@@ -152,6 +152,7 @@
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="NetworkCabling.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
