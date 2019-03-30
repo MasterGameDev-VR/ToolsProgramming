@@ -24,6 +24,9 @@
     <ClInclude Include="GameOfLifeTest.h">
       <Filter>Resource Files</Filter>
     </ClInclude>
+    <ClInclude Include="GravityTest.h">
+      <Filter>Resource Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="pch.cpp">
