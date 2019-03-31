@@ -1,10 +1,58 @@
 // GameOfLife.cpp : Defines the exported functions for the DLL application.
 //
 #include "stdafx.h"
+#include <fstream>
+#include <iostream>
 #include "GameOfLifeGM.h"
 
 namespace GameOfLife {
+
+
+	GameOfLifeGM::GameOfLifeGM(const string INPUT_FILENAME) {
+		int L, W;
+		wchar_t  path_buffer[255];
+		GetModuleFileName(NULL, path_buffer, 255);
+		wstring ws(path_buffer);
+		// your new String
+		string str(ws.begin(), ws.end());
+		string::size_type pos = string(str).find_last_of("\\/");
+		string path =  string(str).substr(0, pos);
+
+		string _INPUT_FILENAME = path +"\\"+ INPUT_FILENAME;
+
+		vector<string> INPUT_ROWS;
+
+		ifstream input(_INPUT_FILENAME);
+
+		//auto cinbuf = cin.rdbuf(input.rdbuf());
+
+		input >> L;
+		input >> W;
+		cout << "file name:" << path << INPUT_FILENAME << "\n";
+		cout << "L:" << L << "\n";
+		cout << "W:" << W << "\n";
+
+		for (int i = 0; i <= W; i++) {
+			string ROW;
+			getline(input, ROW);
+			if (ROW == "")
+				continue;
+
+			INPUT_ROWS.push_back(ROW);
+		}
+
+		for (vector<string>::const_iterator i = INPUT_ROWS.begin(); i != INPUT_ROWS.end(); ++i) {
+			cout << *i << "\n";
+		}
+
+		InitGameOfLifeGM(L, W, INPUT_ROWS);
+	}
+
 	GameOfLifeGM::GameOfLifeGM(int W, int H, vector<string> INPUT_ROWS) {
+		InitGameOfLifeGM(W, H, INPUT_ROWS);
+	}
+
+	void GameOfLifeGM::InitGameOfLifeGM(int W, int H, vector<string> INPUT_ROWS) {
 		width = W;
 		height = H;
 

@@ -1,13 +1,26 @@
 #include "pch.h"
 #include <iostream>
 #include "AsciiArtStringTest.h"
-#include "GameOfLifeTest.h"
+#include "GameOfLifeLibrary.h"
+#include <windows.h>
 
 using namespace std;
 using namespace CodinGame;
 
+typedef int(__stdcall *f_funci)();
+
+typedef GAMEOFLIFE_API void(*ConstructTestFunction)(const string INPUT_FILENAME);
+//typedef void(*ConstructTestFunction)(const string INPUT_FILENAME);
+typedef GAMEOFLIFE_API void(*ExecuteTestFunction)();
+typedef GAMEOFLIFE_API void(*ReleaseTestFunction)();
+
 	int main()
 	{
+		ConstructTestFunction ConstructTest;
+		ExecuteTestFunction ExecuteTest;
+		ReleaseTestFunction ReleaseTest;
+		DWORD last_error;
+
 		int project;
 		int test_case;
 		int exit = 0;
@@ -15,9 +28,9 @@ using namespace CodinGame;
 		cout << "Andrea Novati - Tools programming MasterGameDev 2018-2019\n\n";
 
 		cout << "1) AsciiArt (easy)\n";
-		cout << "2) A_Star (medium)\n";
-		cout << "3) GameOfLife (medium)\n";
-		cout << "3) Quit\n\n";
+		cout << "2) GameOfLife (medium)\n";
+		cout << "3) Gravity (medium)\n";
+		cout << "4) Quit\n\n";
 
 		int test_selected = 0;
 		while (!exit) {
@@ -73,47 +86,75 @@ using namespace CodinGame;
 			case 2: {
 				cout << "Choose a test case [1-7]: ";
 				cin >> test_case;
-				GameOfLifeTest *test1 = NULL;
 
+				HMODULE  dllHandle = LoadLibrary(L"GameOfLife.dll");
+
+				if (!dllHandle) {
+					cout << "Error loading dll file GameOfLife.dll ";
+					return -1;
+				}
+
+				ExecuteTest = (ExecuteTestFunction)GetProcAddress(dllHandle, "ExecuteTest");
+
+				last_error = GetLastError();
+				if (last_error) {
+					cout << "Error loading ExecuteTest proc " << last_error;
+					return -1;
+				}
+
+				ConstructTest = (ConstructTestFunction)GetProcAddress(dllHandle, "ConstructTest");
+				last_error = GetLastError();
+				if (last_error) {
+					cout << "Error loading ConstructTest proc " << last_error;
+					return -1;
+				}
+
+				ReleaseTest = (ReleaseTestFunction)GetProcAddress(dllHandle, "ReleaseTest");
+				last_error = GetLastError();
+				if (last_error) {
+					cout << "Error loading ReleaseTest proc " << last_error;
+					return -1;
+				}
+				
 				switch (test_case) {
 				case 1: {
-					test1 = new GameOfLifeTest("GameOfLife01.txt");
+					ConstructTest("GameOfLife01.txt");
 					test_selected = 1;
 
 					break;
 				}
 				case 2: {
-					test1 = new GameOfLifeTest("GameOfLife02.txt");
+					ConstructTest("GameOfLife02.txt");
 					test_selected = 1;
 
 					break;
 				}
 				case 3: {
-					test1 = new GameOfLifeTest("GameOfLife03.txt");
+					ConstructTest("GameOfLife03.txt");
 					test_selected = 1;
 
 					break;
 				}
 				case 4: {
-					test1 = new GameOfLifeTest("GameOfLife04.txt");
+					ConstructTest("GameOfLife04.txt");
 					test_selected = 1;
 
 					break;
 				}
 				case 5: {
-					test1 = new GameOfLifeTest("GameOfLife05.txt");
+					ConstructTest("GameOfLife05.txt");
 					test_selected = 1;
 
 					break;
 				}
 				case 6: {
-					test1 = new GameOfLifeTest("GameOfLife06.txt");
+					ConstructTest("GameOfLife06.txt");
 					test_selected = 1;
 
 					break;
 				}
 				case 7: {
-					test1 = new GameOfLifeTest("GameOfLife07.txt");
+					ConstructTest("GameOfLife07.txt");
 					test_selected = 1;
 
 					break;
@@ -126,11 +167,91 @@ using namespace CodinGame;
 				
 				
 				if (test_selected == 1)
-					test1->Execute();
+					ExecuteTest();
 
+				ReleaseTest();
+				FreeLibrary(dllHandle);
 				break;
 			}
 			case 3: {
+				cout << "Choose a test case [1-5]: ";
+				cin >> test_case;
+
+				HMODULE  dllHandle = LoadLibrary(L"Gravity.dll");
+
+				if (!dllHandle) {
+					cout << "Error loading dll file Gravity.dll ";
+					return -1;
+				}
+
+				ExecuteTest = (ExecuteTestFunction)GetProcAddress(dllHandle, "ExecuteTest");
+
+				last_error = GetLastError();
+				if (last_error) {
+					cout << "Error loading ExecuteTest proc " << last_error;
+					return -1;
+				}
+
+				ConstructTest = (ConstructTestFunction)GetProcAddress(dllHandle, "ConstructTest");
+				last_error = GetLastError();
+				if (last_error) {
+					cout << "Error loading ConstructTest proc " << last_error;
+					return -1;
+				}
+
+				ReleaseTest = (ReleaseTestFunction)GetProcAddress(dllHandle, "ReleaseTest");
+				last_error = GetLastError();
+				if (last_error) {
+					cout << "Error loading ReleaseTest proc " << last_error;
+					return -1;
+				}
+
+				switch (test_case) {
+				case 1: {
+					ConstructTest("Gravity01.txt");
+					test_selected = 1;
+
+					break;
+				}
+				case 2: {
+					ConstructTest("Gravity02.txt");
+					test_selected = 1;
+
+					break;
+				}
+				case 3: {
+					ConstructTest("Gravity03.txt");
+					test_selected = 1;
+
+					break;
+				}
+				case 4: {
+					ConstructTest("Gravity04.txt");
+					test_selected = 1;
+
+					break;
+				}
+				case 5: {
+					ConstructTest("Gravity05.txt");
+					test_selected = 1;
+
+					break;
+				}
+				default: {
+					cout << "\nYOUR ARGUMENT HAS NEVER BEEN SO INVALID";
+					break;
+				}
+				};
+
+
+				if (test_selected == 1)
+					ExecuteTest();
+
+				ReleaseTest();
+				FreeLibrary(dllHandle);
+				break;
+			}
+			case 4: {
 				cout << "\nQUIT";
 				exit = 1;
 				break;

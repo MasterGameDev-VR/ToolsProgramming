@@ -14,8 +14,11 @@ namespace GravityGM {
 		char* map;
 
 	public:
+		
+		Gravity(const string INPUT_FILENAME);
 
-		Gravity(int W, int H, char *map);
+		void InitGravity(int W, int H, char *map);
+		
 		~Gravity();
 
 		void ApplyOneStep();

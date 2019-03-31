@@ -24,15 +24,18 @@
     <ClInclude Include="GameOfLifeGM.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="GameOfLifeLibrary.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="dllmain.cpp">
+    <ClCompile Include="GameOfLifeGM.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="GameOfLifeGM.cpp">
+    <ClCompile Include="GameOfLifeLibrary.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

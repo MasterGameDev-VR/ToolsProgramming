@@ -21,9 +21,6 @@
     <ClInclude Include="AsciiArtStringTest.h">
       <Filter>Resource Files</Filter>
     </ClInclude>
-    <ClInclude Include="GameOfLifeTest.h">
-      <Filter>Resource Files</Filter>
-    </ClInclude>
     <ClInclude Include="GravityTest.h">
       <Filter>Resource Files</Filter>
     </ClInclude>
@@ -38,9 +35,6 @@
     <ClCompile Include="AsciiArtStringTest.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="GameOfLifeTest.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Text Include="AsciiArt01.txt" />
@@ -48,12 +42,17 @@
     <Text Include="AsciiArt03.txt" />
     <Text Include="AsciiArt04.txt" />
     <Text Include="AsciiArt05.txt" />
-    <Text Include="C:\Users\andrea\Desktop\GameOfLife02.txt" />
-    <Text Include="C:\Users\andrea\Desktop\GameOfLife06.txt" />
-    <Text Include="C:\Users\andrea\Desktop\GameOfLife03.txt" />
-    <Text Include="C:\Users\andrea\Desktop\GameOfLife07.txt" />
-    <Text Include="C:\Users\andrea\Desktop\GameOfLife01.txt" />
-    <Text Include="C:\Users\andrea\Desktop\GameOfLife04.txt" />
-    <Text Include="C:\Users\andrea\Desktop\GameOfLife05.txt" />
+    <Text Include="GameOfLife03.txt" />
+    <Text Include="GameOfLife04.txt" />
+    <Text Include="GameOfLife05.txt" />
+    <Text Include="GameOfLife06.txt" />
+    <Text Include="GameOfLife07.txt" />
+    <Text Include="Gravity01.txt" />
+    <Text Include="Gravity02.txt" />
+    <Text Include="Gravity03.txt" />
+    <Text Include="Gravity04.txt" />
+    <Text Include="Gravity05.txt" />
+    <Text Include="GameOfLife01.txt" />
+    <Text Include="GameOfLife02.txt" />
   </ItemGroup>
 </Project>
