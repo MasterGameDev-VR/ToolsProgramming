@@ -106,7 +106,7 @@
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
-      <AdditionalIncludeDirectories>D:\REPO\ToolsProgramming\Novati\GameOfLife;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\REPO\ToolsProgramming\Novati\GameOfLife;D:\REPO\ToolsProgramming\Zamprogno\MayanCalculation;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -158,12 +158,13 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="AsciiArtStringTest.h" />
-    <ClInclude Include="GravityTest.h" />
+    <ClInclude Include="MayanCalculationTest.h" />
     <ClInclude Include="pch.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AsciiArtStringTest.cpp" />
     <ClCompile Include="CodinGameMain.cpp" />
+    <ClCompile Include="MayanCalculationTest.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
@@ -191,6 +192,9 @@
     <Text Include="Gravity05.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Zamprogno\MayanCalculation\MayanCalculation.vcxproj">
+      <Project>{e714e622-aad0-41f8-b654-b4ceeb1fcef9}</Project>
+    </ProjectReference>
     <ProjectReference Include="AsciiArt\AsciiArt.vcxproj">
       <Project>{eeaf4daa-9f57-489e-869a-27207172494d}</Project>
     </ProjectReference>
