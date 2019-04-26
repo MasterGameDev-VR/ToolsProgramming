@@ -6,6 +6,7 @@
 #include "..\BenderEpisode1\BenderEpisode1.h"
 #include "..\TheTravellingSalesmanProblem\TheTravellingSalesmanProblem.h"
 #include "..\ASCIIArt\ASCIIArt.h"
+#include "..\..\Zamprogno\MayanCalculation\MayanCalculation.h"
 
 using std::cin;
 using std::cout;
@@ -15,8 +16,6 @@ void BenderProblem();
 void SalesmanProblem();
 void ASCIIArtProblem();
 int SelectCase(int maxCase);
-
-
 
 int main() {
 	std::streambuf *backup;

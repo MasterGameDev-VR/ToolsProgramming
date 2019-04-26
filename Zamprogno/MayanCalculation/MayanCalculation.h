@@ -2,7 +2,8 @@
 #include <string>
 #include <vector>
 
-using namespace std;
+using std::vector;
+using std::string;
 
 struct MayanNumber
 {
@@ -21,8 +22,6 @@ private:
 
 	int S2;
 	vector<MayanNumber> secondMayanNumber;
-
-	string operation;
 
 public:
 	MayanCalculation(char *fileName);

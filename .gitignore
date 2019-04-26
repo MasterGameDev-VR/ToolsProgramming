@@ -2,6 +2,7 @@ Zamprogno/MayanCalculation/Debug/
 Zamprogno/MayanCalculation/.vs/
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 Caldana/.vs/
 Caldana/Debug/
 Caldana/CodinGameMain/Debug/
@@ -9,6 +10,8 @@ Caldana/NumberOfLettersInANumber/Debug/
 Caldana/NetworkCabling/Debug/
 
 =======
+=======
+>>>>>>> feature/Ciardi_Primo_esercizio
 Ciardi/x64/
 Ciardi/CodinGameMain/x64/
 Ciardi/CodinGameMain/.vs/
@@ -16,6 +19,8 @@ Ciardi/.vs/
 Ciardi/BenderEpisode1/x64/
 Ciardi/TheTravellingSalesmanProblem/x64/
 Ciardi/ASCIIArt/x64/
+Zamprogno/MayanCalculation/x64/
+<<<<<<< HEAD
 >>>>>>> feature/Ciardi_Primo_esercizio
 =======
 
@@ -40,3 +45,6 @@ Novati/GameOfLife/x64/Debug/
 Novati/GameOfLife/x64/Release/
 Novati/GameOfLife/Debug/
 Novati/GameOfLife/Release/
+=======
+
+>>>>>>> feature/Ciardi_Primo_esercizio

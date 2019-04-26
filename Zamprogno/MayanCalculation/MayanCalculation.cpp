@@ -8,45 +8,38 @@ using namespace std;
 
 MayanCalculation::MayanCalculation(char *fileName)
 {
-	//std::ifstream in(fileName);
-	//auto cinbuf = std::cin.rdbuf(in.rdbuf());
+	std::ifstream in(fileName);
+	auto cinbuf = std::cin.rdbuf(in.rdbuf());
 
-	ifstream input(fileName);
-
-	input >> L >> H; input.ignore();
+	cin >> L >> H; cin.ignore();
 	for (int i = 0; i < 20; ++i)
 		numbers.push_back(MayanNumber());
 
 	for (int i = 0; i < H; i++) {
 		string numeral;
-		input >> numeral; input.ignore();
+		cin >> numeral; cin.ignore();
 		for (int n = 0; n < 20; ++n)
 			numbers[n].digit.push_back(numeral.substr(n*L, L));
 	}
 
-	input >> S1; input.ignore();
+	cin >> S1; cin.ignore();
 	for (int i = 0; i < S1 / H; ++i)
 		firstMayanNumber.push_back(MayanNumber());
 
 	for (int i = 0; i < S1; i++) {
 		string num1Line;
-		input >> num1Line; input.ignore();
+		cin >> num1Line; cin.ignore();
 		firstMayanNumber[i / H].digit.push_back(num1Line);
 	}
 
-	input >> S2; input.ignore();
-
+	cin >> S2; cin.ignore();
 	for (int i = 0; i < S2 / H; ++i)
 		secondMayanNumber.push_back(MayanNumber());
-
 	for (int i = 0; i < S2; i++) {
 		string num2Line;
-		input >> num2Line; input.ignore();
+		cin >> num2Line; cin.ignore();
 		secondMayanNumber[i / H].digit.push_back(num2Line);
 	}
-
-	operation;
-	input >> operation; input.ignore();
 }
 
 void MayanCalculation::Execute()
@@ -77,6 +70,8 @@ void MayanCalculation::Execute()
 			}
 		}
 
+	string operation;
+	cin >> operation; cin.ignore();
 	if (operation.compare("+") == 0)
 		firstNumber += secondNumber;
 	else if (operation.compare("-") == 0)
