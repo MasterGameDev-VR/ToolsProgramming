@@ -5,6 +5,7 @@ VisualStudioVersion = 15.0.28307.572
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CodinGameMain", "CodinGameMain\CodinGameMain.vcxproj", "{12F35F43-1E9E-4D75-9799-1F0C462097C8}"
 	ProjectSection(ProjectDependencies) = postProject
+		{E714E622-AAD0-41F8-B654-B4CEEB1FCEF9} = {E714E622-AAD0-41F8-B654-B4CEEB1FCEF9}
 		{3FE96C2A-3D0B-44C1-89AF-EAC579BC52D6} = {3FE96C2A-3D0B-44C1-89AF-EAC579BC52D6}
 		{EBEDA47A-D980-4BAC-BBAD-A778F5CF9BC7} = {EBEDA47A-D980-4BAC-BBAD-A778F5CF9BC7}
 	EndProjectSection
@@ -12,6 +13,8 @@ EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "StockExchangeLosses", "StockExchangeLosses\StockExchangeLosses.vcxproj", "{3FE96C2A-3D0B-44C1-89AF-EAC579BC52D6}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ChuckNorris", "ChuckNorris\ChuckNorris.vcxproj", "{EBEDA47A-D980-4BAC-BBAD-A778F5CF9BC7}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MayanCalculation", "..\Zamprogno\MayanCalculation\MayanCalculation.vcxproj", "{E714E622-AAD0-41F8-B654-B4CEEB1FCEF9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +48,14 @@ Global
 		{EBEDA47A-D980-4BAC-BBAD-A778F5CF9BC7}.Release|x64.Build.0 = Release|x64
 		{EBEDA47A-D980-4BAC-BBAD-A778F5CF9BC7}.Release|x86.ActiveCfg = Release|Win32
 		{EBEDA47A-D980-4BAC-BBAD-A778F5CF9BC7}.Release|x86.Build.0 = Release|Win32
+		{E714E622-AAD0-41F8-B654-B4CEEB1FCEF9}.Debug|x64.ActiveCfg = Debug|x64
+		{E714E622-AAD0-41F8-B654-B4CEEB1FCEF9}.Debug|x64.Build.0 = Debug|x64
+		{E714E622-AAD0-41F8-B654-B4CEEB1FCEF9}.Debug|x86.ActiveCfg = Debug|Win32
+		{E714E622-AAD0-41F8-B654-B4CEEB1FCEF9}.Debug|x86.Build.0 = Debug|Win32
+		{E714E622-AAD0-41F8-B654-B4CEEB1FCEF9}.Release|x64.ActiveCfg = Release|x64
+		{E714E622-AAD0-41F8-B654-B4CEEB1FCEF9}.Release|x64.Build.0 = Release|x64
+		{E714E622-AAD0-41F8-B654-B4CEEB1FCEF9}.Release|x86.ActiveCfg = Release|Win32
+		{E714E622-AAD0-41F8-B654-B4CEEB1FCEF9}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

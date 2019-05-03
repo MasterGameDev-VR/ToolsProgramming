@@ -6,16 +6,18 @@
 #include <filesystem>
 #include "..\StockExchangeLosses\StockExchangeLosses.h"
 #include "..\ChuckNorris\ChuckNorris.h"
+#include "..\..\Zamprogno\MayanCalculation\MayanCalculation.h"
 
 namespace fs = std::filesystem;
 
 void chuck();
 void stock();
+void mayan();
 
 int main(){
 	char choice;
 
-	std::cout << "Selezionare esercizio: \n1) Stock Exchange Losses \n2) Chuck Norris" << std::endl;
+	std::cout << "Selezionare esercizio: \n1) Stock Exchange Losses \n2) Chuck Norris \n3) Mayan calculation" << std::endl;
 	std::cin >> choice;
 
 	switch (choice){
@@ -24,6 +26,9 @@ int main(){
 		break;
 	case '2':
 		chuck();
+		break;
+	case '3':
+		mayan();
 		break;
 	default:
 		std::cout << "Unknown choice";
@@ -50,7 +55,16 @@ void stock() {
 		stock.Execute();
 		std::cout << std::endl;
 	}
+}
 
+void mayan() {
+	std::string path = "..\\TestMayan";
+	for (const auto & entry : fs::directory_iterator(path)) {
+		MayanCalculation mayan(entry.path().u8string());
+		std::cout << "Test: " << entry.path().u8string() << std::endl;
+		mayan.Execute();
+		std::cout << std::endl;
+	}
 }
 
 
