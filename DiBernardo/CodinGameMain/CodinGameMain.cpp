@@ -3,20 +3,14 @@
 
 #include "pch.h"
 #include <iostream>
+#include <filesystem>
 #include "..\StockExchangeLosses\StockExchangeLosses.h"
 #include "..\ChuckNorris\ChuckNorris.h"
 
-void chuck() {
-	ChuckNorris chuck("..\\ChuckNorris.txt");
-	std::cout << "ChuckNorris: ";
-	chuck.Execute();
-}
+namespace fs = std::filesystem;
 
-void stock() {
-	StockExchangeLosses stock("..\\StockExchangeLosses.txt");
-	std::cout << "StockExchangeLosses: ";
-	stock.Execute();
-}
+void chuck();
+void stock();
 
 int main(){
 	char choice;
@@ -34,6 +28,27 @@ int main(){
 	default:
 		std::cout << "Unknown choice";
 		break;
+	}
+
+}
+
+void chuck() {
+	std::string path = "..\\TestChuck";
+	for (const auto & entry : fs::directory_iterator(path)) {
+		ChuckNorris chuck(entry.path().u8string());
+		std::cout << "Test: " << entry.path().u8string() << std::endl;
+		chuck.Execute();
+		std::cout << std::endl;
+	}
+}
+
+void stock() {
+	std::string path = "..\\TestStock";
+	for (const auto & entry : fs::directory_iterator(path)) {
+		StockExchangeLosses stock(entry.path().u8string());
+		std::cout << "Test: " << entry.path().u8string() << std::endl;
+		stock.Execute();
+		std::cout << std::endl;
 	}
 
 }
