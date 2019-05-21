@@ -4,9 +4,18 @@
 #include "pch.h"
 #include <iostream>
 
+#include "HiddenWordStriker.h"
+
 int main()
 {
-    std::cout << "Hello World!\n"; 
+	const std::string hiddenWordTestsPrefix = "..\\Tests\\HiddenWord\\";
+	const std::string anotherProblemTestsPrefix = "..\\Tests\\HiddenWord\\";
+
+	HiddenWord::HiddenWordStriker hWs(hiddenWordTestsPrefix + "VerticalWords.txt");
+	hWs.Execute();
+
+
+	return 0;
 }
 
 // Per eseguire il programma: CTRL+F5 oppure Debug > Avvia senza eseguire debug
