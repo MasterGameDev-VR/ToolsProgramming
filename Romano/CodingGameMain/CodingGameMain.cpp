@@ -11,9 +11,13 @@ int main()
 	const std::string hiddenWordTestsPrefix = "..\\Tests\\HiddenWord\\";
 	const std::string anotherProblemTestsPrefix = "..\\Tests\\HiddenWord\\";
 
-	HiddenWord::HiddenWordStriker hWs(hiddenWordTestsPrefix + "VerticalWords.txt");
+	HiddenWord::HiddenWordStriker hWs(hiddenWordTestsPrefix + "AllDirectionsBig.txt");
+
+	std::cout << "Risultato:" << std::endl;
+
 	hWs.Execute();
 
+	std::cout << std::endl;
 
 	return 0;
 }

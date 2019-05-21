@@ -5,7 +5,7 @@
 
 namespace HiddenWord
 {
-	HiddenWordStriker::HiddenWordStriker(const std::string & filePath)
+	HiddenWordStriker::HiddenWordStriker(const std::string& filePath)
 	{
 		std::ifstream input(filePath);
 		auto cinbuf = std::cin.rdbuf(input.rdbuf());
@@ -78,18 +78,17 @@ namespace HiddenWord
 			}
 		}
 
-		std::cout << "Risultato:" << std::endl;
-
 		for (int i = 0; i < _rows; i++)
 		{
 			for (int j = 0; j < _cols; j++)
 			{
 				if (_flagMatrix[i][j])
+				{
 					std::cout << _charMatrix[i][j];
+				}
 			}
 		}
 
-		std::cout << std::endl;
 	}
 
 	// Questo metodo ricerca una parola a partire da una data cella in tutte e 8 le direzioni possibili
@@ -106,7 +105,7 @@ namespace HiddenWord
 			return false;
 		}
 
-		int wordLength = word.length();
+		const int wordLength = word.length();
 
 		// Ricerca in tutte le direzioni a partire da (atRow, atCol)
 		for (int dir = 0; dir < 8; dir++)
