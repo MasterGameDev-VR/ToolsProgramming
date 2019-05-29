@@ -1,0 +1,5 @@
+﻿  CodingGameMain.cpp
+c:\users\dotta\documents\master\tools\esercizio\romano\codinggamemain\codinggamemain.cpp(33): warning C4018: '<': errata corrispondenza tra signed e unsigned
+c:\users\dotta\documents\master\tools\esercizio\romano\codinggamemain\codinggamemain.cpp(50): warning C4018: '<': errata corrispondenza tra signed e unsigned
+c:\users\dotta\documents\master\tools\esercizio\romano\codinggamemain\codinggamemain.cpp(67): warning C4018: '<': errata corrispondenza tra signed e unsigned
+  CodingGameMain.vcxproj -> C:\Users\dotta\Documents\MASTER\Tools\Esercizio\Romano\Debug\CodingGameMain.exe
