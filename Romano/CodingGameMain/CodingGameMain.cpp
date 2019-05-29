@@ -3,32 +3,77 @@
 
 #include "pch.h"
 #include <iostream>
+#include <filesystem>
 
 #include "HiddenWordStriker.h"
+#include "NumberOfLettersInANumberCounter.h"
+#include "PalindromicDecompositionCounter.h"
+
+typedef std::vector<std::string> StringVector;
+
+void GetPathsInDirectory(const std::string& directoryPath, StringVector& paths)
+{
+	for (auto& p : std::experimental::filesystem::directory_iterator(directoryPath))
+		paths.push_back(p.path().string());
+}
 
 int main()
 {
 	const std::string hiddenWordTestsPrefix = "..\\Tests\\HiddenWord\\";
-	const std::string anotherProblemTestsPrefix = "..\\Tests\\HiddenWord\\";
+	const std::string numberOfLettersInANumberTestsPrefix = "..\\Tests\\NumberOfLettersInANumber\\";
+	const std::string palindromicDecompositionTestsPrefix = "..\\Tests\\PalindromicDecomposition\\";
 
-	HiddenWord::HiddenWordStriker hWs(hiddenWordTestsPrefix + "AllDirectionsBig.txt");
+	{
+		StringVector paths;
 
-	std::cout << "Risultato:" << std::endl;
+		GetPathsInDirectory(hiddenWordTestsPrefix, paths);
 
-	hWs.Execute();
+		std::cout << "Risultati (esercizio 1 - Hidden Word):" << std::endl;
 
-	std::cout << std::endl;
+		for (int i = 0; i < paths.size(); i++)
+		{
+			HiddenWord::HiddenWordStriker hWs(paths[i]);
+
+			std::cout << "Test sample: " << paths[i] << std::endl;
+			hWs.Execute();
+			std::cout << std::endl;
+		}
+	}
+
+	{
+		StringVector paths;
+
+		GetPathsInDirectory(numberOfLettersInANumberTestsPrefix, paths);
+
+		std::cout << "\nRisultati (esercizio 2 - Number of letters in a number, binary):" << std::endl;
+
+		for (int i = 0; i < paths.size(); i++)
+		{
+			NumberOfLettersInANumber::NumberOfLettersInANumberCounter nLn(paths[i]);
+
+			std::cout << "Test sample: " << paths[i] << std::endl;
+			nLn.Execute();
+			std::cout << std::endl;
+		}
+	}
+
+	{
+		StringVector paths;
+
+		GetPathsInDirectory(palindromicDecompositionTestsPrefix, paths);
+
+		std::cout << "\nRisultati (esercizio 3 - Palindromic Decomposition):" << std::endl;
+
+		for (int i = 0; i < paths.size(); i++)
+		{
+			PalindromicDecomposition::PalindromidDecompositionCounter pDc(paths[i]);
+
+			std::cout << "Test sample: " << paths[i] << std::endl;
+			pDc.Execute();
+			std::cout << std::endl;
+		}
+	}
 
 	return 0;
 }
 
-// Per eseguire il programma: CTRL+F5 oppure Debug > Avvia senza eseguire debug
-// Per eseguire il debug del programma: F5 oppure Debug > Avvia debug
-
-// Suggerimenti per iniziare: 
-//   1. Usare la finestra Esplora soluzioni per aggiungere/gestire i file
-//   2. Usare la finestra Team Explorer per connettersi al controllo del codice sorgente
-//   3. Usare la finestra di output per visualizzare l'output di compilazione e altri messaggi
-//   4. Usare la finestra Elenco errori per visualizzare gli errori
-//   5. Passare a Progetto > Aggiungi nuovo elemento per creare nuovi file di codice oppure a Progetto > Aggiungi elemento esistente per aggiungere file di codice esistenti al progetto
-//   6. Per aprire di nuovo questo progetto in futuro, passare a File > Apri > Progetto e selezionare il file con estensione sln
