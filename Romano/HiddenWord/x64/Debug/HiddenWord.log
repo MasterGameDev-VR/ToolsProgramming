@@ -1,0 +1,5 @@
+﻿  stdafx.cpp
+  HiddenWordStriker.cpp
+c:\users\dotta\documents\master\tools\esercizio\romano\hiddenword\hiddenwordstriker.cpp(108): warning C4267: 'inizializzazione': conversione da 'size_t' a 'int'. Possibile perdita di dati.
+c:\users\dotta\documents\master\tools\esercizio\romano\hiddenword\hiddenwordstriker.cpp(108): warning C4267: 'inizializzazione': conversione da 'size_t' a 'const int'. Possibile perdita di dati.
+  HiddenWord.vcxproj -> C:\Users\dotta\Documents\MASTER\Tools\Esercizio\Romano\x64\Debug\HiddenWord.lib
