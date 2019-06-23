@@ -3,19 +3,55 @@
 
 #include "pch.h"
 #include <iostream>
+#include "../SumofDivisors/SumofDivisors.h"
+
+
+void Divisors(int n);
 
 int main()
 {
-    std::cout << "Hello World!\n"; 
+	int nTest = 4;
+	bool ext = false;
+	char choise;
+	auto chooseBuf = std::cin.rdbuf(); //Stream buffer usato per leggere la risposta dell'utente
+
+	std::cout << "Progetto Tools Gullotta Mario.\n";
+
+	while (!ext)
+	{
+		std::cout << "Digita 1 per selezionare il minigioco Sum of Divisors, 2 per il minigioco THESE ROMANS ARE CRAZY! o n per uscire\n";
+		std::cin.rdbuf(chooseBuf);
+		std::cin >> choise;
+		std::cin.ignore();
+
+		switch (choise)
+		{
+		case '1':
+			std::cout << "Hai selezionato Sum of Divisors\n";
+			Divisors(nTest);
+			break;
+
+		case '2':
+			std::cout << "Hai selezionato THESE ROMANS ARE CRAZY\n";
+			break;
+
+		case 'n':
+		case 'N':
+			ext = true;
+			break;
+
+		default:
+			std::cout << "Errore, scelta non corretta. Riprovare\n";
+			break;
+		}
+	}
 }
 
-// Run program: Ctrl + F5 or Debug > Start Without Debugging menu
-// Debug program: F5 or Debug > Start Debugging menu
-
-// Tips for Getting Started: 
-//   1. Use the Solution Explorer window to add/manage files
-//   2. Use the Team Explorer window to connect to source control
-//   3. Use the Output window to see build output and other messages
-//   4. Use the Error List window to view errors
-//   5. Go to Project > Add New Item to create new code files, or Project > Add Existing Item to add existing code files to the project
-//   6. In the future, to open this project again, go to File > Open > Project and select the .sln file
+void Divisors(int n)
+{
+	for (int i = 1; i <= n; i++)
+	{
+		SumofDivisors SoM("..\\SumofDivisors\\SumOfDivisorsTest\\Test" + std::to_string(i) + ".txt");
+		SoM.Execute();
+	}
+}
