@@ -4,9 +4,11 @@
 #include "pch.h"
 #include <iostream>
 #include "../SumofDivisors/SumofDivisors.h"
+#include "../THESE ROMANS ARE CRAZY!/TheseRomans.h"
 
 
 void Divisors(int n);
+void Romans(int n);
 
 int main()
 {
@@ -33,6 +35,7 @@ int main()
 
 		case '2':
 			std::cout << "Hai selezionato THESE ROMANS ARE CRAZY\n";
+			Romans(nTest);
 			break;
 
 		case 'n':
@@ -53,5 +56,14 @@ void Divisors(int n)
 	{
 		SumofDivisors SoM("..\\SumofDivisors\\SumOfDivisorsTest\\Test" + std::to_string(i) + ".txt");
 		SoM.Execute();
+	}
+}
+
+void Romans(int n)
+{
+	for (int i = 1; i <= n; i++)
+	{
+		TheseRomans tr("..\\THESE ROMANS ARE CRAZY!\\Tests\\Test" + std::to_string(i) + ".txt");
+		tr.Execute();
 	}
 }
