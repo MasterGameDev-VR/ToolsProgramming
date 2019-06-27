@@ -39,7 +39,4 @@
       <Filter>File di origine</Filter>
     </ClCompile>
   </ItemGroup>
-  <ItemGroup>
-    <Text Include="ANEOSponsoredPuzzle.txt" />
-  </ItemGroup>
 </Project>

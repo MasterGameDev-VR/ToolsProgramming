@@ -7,9 +7,15 @@
 
 int main()
 {
+	//D:\\progetti_Master\\Tools_Zamprogno_esame\\Sciortino\\CodinGameMain
+	std::string ANEOSponsoredPuzzleTestsPath{ "..\\ANEOSponsoredPuzzle\\Tests\\ANEOSponsoredPuzzleTest" };
+	std::string PathTermination{ ".txt" };
+	for (unsigned int i = 1; i <= 10; i++) {
+		ANEOpuzzleExercise exercise{ ANEOSponsoredPuzzleTestsPath + std::to_string(i)+ PathTermination};
+		exercise.Execute();
+	}
 	
-	ANEOpuzzleExercise exercise = ANEOpuzzleExercise("D:\progetti_Master\Tools_Zamprogno_esame\Sciortino\CodinGameMain\ANEOSponsoredPuzzle\ANEOSponsoredPuzzle.txt");
-	exercise.Execute();
+	
 }
 
 // Per eseguire il programma: CTRL+F5 oppure Debug > Avvia senza eseguire debug

@@ -11,6 +11,7 @@
 
 // TODO: aggiungere qui le intestazioni da precompilare
 #include "..\ANEOSponsoredPuzzle\ANEOpuzzleExercise.h"
+#include <cstdlib>
 #include <iostream>
 #include <fstream>
 #include <string>

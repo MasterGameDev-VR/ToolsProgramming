@@ -17,16 +17,28 @@ class ANEOSPONSOREDPUZZLE_API myFloatVector : public std::vector<float>
 #include <fstream>
 #include <string>
 #include <vector>
-extern "C++"  class ANEOSPONSOREDPUZZLE_API ANEOpuzzleExercise
+#include <cmath>
 
+
+
+extern "C++"  class ANEOSPONSOREDPUZZLE_API ANEOpuzzleExercise
 {
 public:
 	ANEOpuzzleExercise(std::string);
 	~ANEOpuzzleExercise();
-
 	void Execute();
+
+	
+
 private:
-	bool CheckIfTheIthTrafficLightIsGreen(std::vector<float>&, std::vector<int>&, unsigned int);
+	bool CheckIfTheIthTrafficLightIsRed(const int, const int, int);
+
+	int speed;
+	int lightCount;
+	std::vector<int> distances;
+	std::vector<int> durations;
 
 };
+
+
 

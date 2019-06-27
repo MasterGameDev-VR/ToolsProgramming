@@ -5,10 +5,23 @@ using namespace std;
 
 ANEOpuzzleExercise::ANEOpuzzleExercise(std::string fileName)
 {
-	ifstream inputFile(fileName);
+	// loading data...
+	ifstream inputFile;
+	inputFile.open(fileName);
 	filebuf* inputbuf = inputFile.rdbuf();
-	cin.clear();
-	auto cinbuffer = cin.rdbuf(inputFile.rdbuf());
+	streambuf* cinbuffer = cin.rdbuf(inputFile.rdbuf());
+	cin >> speed;
+	cin.ignore();
+	cin >> lightCount; cin.ignore();
+
+
+	for (int i = 0; i < lightCount; i++) {
+		int distance;
+		int duration;
+		cin >> distance >> duration; cin.ignore();
+		distances.push_back(distance);
+		durations.push_back(duration);
+	}
 }
 
 ANEOpuzzleExercise::~ANEOpuzzleExercise()
@@ -18,51 +31,42 @@ ANEOpuzzleExercise::~ANEOpuzzleExercise()
 //, std::allocator<float>
 //, std::allocator<int>
 
-bool ANEOpuzzleExercise::CheckIfTheIthTrafficLightIsGreen(std::vector<float>& arrivalTimes, std::vector<int>& durations,unsigned int i)
+bool ANEOpuzzleExercise::CheckIfTheIthTrafficLightIsRed(const int distance,  const int duration,const int speed)
 {
 	// questo metodo deve ritornare true solo se il tempo di arrivo NON è compreso in uno
 	// degli intervalli di tempo
 	// da 0 a duration, da 2 * duration a 3* duration, da 4 * duration a 5 * duration
-	int last_interval_to_check = 0;
-	while (arrivalTimes[i] > last_interval_to_check *durations[durations.size() - 1 - i])
-	{
-		last_interval_to_check += 1;
-	}
-	if (last_interval_to_check % 2 == 0)
-	{
-		return true;
-	}
-	else
+	
+	//distance /( speed /(18/5)) = distance / speed_in_mpersec = arrivaltime
+	//condizione da inserire:  si divide per il doppio della durata del verde e si considera il resto
+	// (18* distance ) / (5 * speed ) % (2 * duration ) <= duration
+	//per evitare confronti tra float si moltiplica tutto per (5* speed)
+
+	if ((18 * distance) % (2 * duration * (5 * speed)) < duration * (5 * speed))
 	{
 		return false;
 	}
-
+	else
+	{
+		return true;
+	}
+	
+	
 }
 void ANEOpuzzleExercise::Execute() {
-	// loading data...
-	int speed;
-	cin >> speed; cin.ignore();
-	int lightCount;
-	cin >> lightCount; cin.ignore();
-	std::vector<int> distances;
-	std::vector<int> durations;
-
-	for (int i = 0; i < lightCount; i++) {
-		int distance;
-		int duration;
-		cin >> distance >> duration; cin.ignore();
-		distances.push_back(distance);
-		durations.push_back(duration);
-	}
+	
 	//speed unit conversion ( meters per second)
 	float speed_mpersec = speed / 3.6f;
-
+	
 	bool found_max_speed = false;
 	int lowest_speed = 3;
 
 	while (!found_max_speed && speed >= lowest_speed) {
-
-
+		/*
+		std::cout << speed << "   "; std::cout << speed_mpersec << std::endl;
+		std::cout << std::endl << std::endl;
+		*/
+		/*
 		//calculate arrival times
 		std::vector<float> arrivalTimes;
 		for (std::vector<int>::reverse_iterator itDists = distances.rbegin(); itDists != distances.crend(); ++itDists) {
@@ -70,36 +74,23 @@ void ANEOpuzzleExercise::Execute() {
 			float arrivalTime = (*itDists) / speed_mpersec;
 			arrivalTimes.push_back(arrivalTime);
 		}
-
+		for (unsigned int i = 0; i < arrivalTimes.size(); i++) {
+			std::cout << arrivalTimes[i] << "  ";
+		}*/
+		
 		//compare arrival times with durations
 		//arrival times are stored in reverse order, from the last traffic light one to the first t.l. one
 		//so the first one is compared with the last duration
 		bool speed_has_been_reduced=false;
-		for (unsigned int i = 0; i < arrivalTimes.size(); i++) {
-			//arrivalTimes[i] > durations[durations.size() - 1 - i]
-			if (CheckIfTheIthTrafficLightIsGreen(arrivalTimes, durations, i))
+		for (unsigned int i = 0; i < distances.size(); i++) {
+			if (CheckIfTheIthTrafficLightIsRed(distances[i], durations[i], speed))
 			{
 				speed--;
 				speed_mpersec = speed / 3.6f;
 				speed_has_been_reduced = true;
 				break;
 			}
-			/*
-			if (arrivalTimes[i] > durations[durations.size() - 1 - i])
-			{
-				int reduction_factor = 2;
-				float speed_mpersec_new= speed_mpersec+0.2f;
-				while (speed_mpersec_new >= speed_mpersec)
-				{
-					speed_mpersec_new = (float) distances[durations.size() - 1 - i] / (reduction_factor *durations[durations.size() - 1 - i]);
-					reduction_factor += 2;
-				}
-				speed_mpersec = speed_mpersec_new;
-				speed = (int) (speed_mpersec *3.6f);
-				speed_has_been_reduced = true;
-				break;	
-			}
-			*/
+			
 		}
 
 		if (!speed_has_been_reduced)
@@ -110,7 +101,7 @@ void ANEOpuzzleExercise::Execute() {
 	std::string answer;
 	if (found_max_speed) 
 	{
-		answer.append("the maximum speed is " + to_string(speed_mpersec)+ " m/s approximated by " + to_string(speed)+" km/h ");
+		answer.append("the maximum speed is " + to_string(speed_mpersec)+ " m/s equivalent to " + to_string(speed)+" km/h ");
 	}
 	else 
 	{
