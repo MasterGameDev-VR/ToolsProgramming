@@ -9,7 +9,7 @@ public:
 	bool IsFilled();
 	void IncreaseWeight();
 	int GetWeight();
-
+	void Fill();
 
 private:
 	int weight = 0;

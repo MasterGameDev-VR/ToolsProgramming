@@ -5,11 +5,12 @@
 Path::Path(std::vector<MapObject>& pathMapObjects_init): pathMapObjects(pathMapObjects_init)
 {
 }
-
-Path::Path(std::vector<MapObject> pathMapObjects_init) : pathMapObjects(pathMapObjects_init)
-{
+Path::Path(Path& path_init) {
+	pathMapObjects = path_init.pathMapObjects;
+	directions = path_init.directions;
+	pathEndHole = path_init.pathEndHole;
+	isValid = path_init.isValid;
 }
-
 
 Path::~Path()
 {
@@ -30,11 +31,26 @@ void Path::Invalidate() {
 bool Path::IsFinished() {
 	return (pathEndHole != nullptr);
 }
+bool Path::IsValid() 
+{
+	return isValid;
+}
 
-std::vector<MapObject> Path::GetPath() {
-	return pathMapObjects;
+Path& Path::GetPath() {
+	return *this;
 }
 
 MapObject& Path::GetEndPoint(){
 	return pathMapObjects.back();
+}
+
+Hole* Path::GetHolePtr() {
+	return pathEndHole;
+}
+
+std::vector<MapObject>& Path::GetPositions() {
+	return pathMapObjects;
+}
+std::vector<Directions>& Path::GetDirections() {
+	return directions;
 }

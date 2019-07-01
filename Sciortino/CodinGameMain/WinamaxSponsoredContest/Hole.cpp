@@ -23,3 +23,8 @@ void Hole::IncreaseWeight() {
 int Hole::GetWeight() {
 	return weight;
 }
+
+void Hole::Fill()
+{
+	filled =true;
+}

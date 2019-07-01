@@ -8,8 +8,7 @@ class Path
 {
 public:
 	Path(std::vector<MapObject>&);
-	Path(std::vector<MapObject>);
-
+	Path( Path& );
 	~Path();
 
 	
@@ -20,10 +19,16 @@ public:
 
 	void Invalidate();
 	bool IsFinished();
+	bool IsValid();
 
-	std::vector<MapObject> GetPath();
+	Hole* GetHolePtr();
+
+	Path& GetPath();
 
 	MapObject& GetEndPoint();
+
+	std::vector<MapObject>& GetPositions();
+	std::vector<Directions>& GetDirections();
 
 private:
 	std::vector<MapObject> pathMapObjects;

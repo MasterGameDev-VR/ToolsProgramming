@@ -4,10 +4,10 @@ class MapObject
 public:
 	MapObject(int, int, bool);
 
-	~MapObject();
-	int GetCol();
-	int GetRow();
-	bool GetIsEmpty();
+	virtual ~MapObject();
+	virtual int GetCol();
+	virtual int GetRow();
+	virtual bool GetIsEmpty();
 
 private:
 	int x;

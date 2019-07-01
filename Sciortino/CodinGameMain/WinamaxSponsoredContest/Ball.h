@@ -6,7 +6,7 @@ using namespace std;
 class Ball : public MapObject
 {
 public:
-	Ball(int, int,int);
+	Ball(int, int, int);
 	~Ball();
 
 	int GetPower();
