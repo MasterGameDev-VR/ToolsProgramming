@@ -10,6 +10,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CodinGameMain", "CodinGameM
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ANEOSponsoredPuzzle", "ANEOSponsoredPuzzle\ANEOSponsoredPuzzle.vcxproj", "{FB2E6737-EB9B-4965-A971-805C6DB3B1A6}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "WinamaxSponsoredContest", "WinamaxSponsoredContest\WinamaxSponsoredContest.vcxproj", "{883D17C9-7203-4B28-A454-5E9F17B3FE1B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -34,6 +36,14 @@ Global
 		{FB2E6737-EB9B-4965-A971-805C6DB3B1A6}.Release|x64.Build.0 = Release|x64
 		{FB2E6737-EB9B-4965-A971-805C6DB3B1A6}.Release|x86.ActiveCfg = Release|Win32
 		{FB2E6737-EB9B-4965-A971-805C6DB3B1A6}.Release|x86.Build.0 = Release|Win32
+		{883D17C9-7203-4B28-A454-5E9F17B3FE1B}.Debug|x64.ActiveCfg = Debug|x64
+		{883D17C9-7203-4B28-A454-5E9F17B3FE1B}.Debug|x64.Build.0 = Debug|x64
+		{883D17C9-7203-4B28-A454-5E9F17B3FE1B}.Debug|x86.ActiveCfg = Debug|Win32
+		{883D17C9-7203-4B28-A454-5E9F17B3FE1B}.Debug|x86.Build.0 = Debug|Win32
+		{883D17C9-7203-4B28-A454-5E9F17B3FE1B}.Release|x64.ActiveCfg = Release|x64
+		{883D17C9-7203-4B28-A454-5E9F17B3FE1B}.Release|x64.Build.0 = Release|x64
+		{883D17C9-7203-4B28-A454-5E9F17B3FE1B}.Release|x86.ActiveCfg = Release|Win32
+		{883D17C9-7203-4B28-A454-5E9F17B3FE1B}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
