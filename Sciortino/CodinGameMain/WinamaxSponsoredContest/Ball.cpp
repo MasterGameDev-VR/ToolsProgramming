@@ -16,7 +16,8 @@ Ball::~Ball()
 int Ball::GetPower() {
 	return power;
 }
-void Ball::LoadPaths(vector<Path>& paths_to_load) {
-	paths.assign(paths_to_load.begin(), paths_to_load.end());
+void Ball::LoadPaths(std::vector<Path>* paths_to_load) {
+	paths = paths_to_load;
+	//(*paths).assign((*paths_to_load).begin(), (*paths_to_load).end());
 	//paths = paths_to_load;
 }

@@ -6,5 +6,6 @@ class WaterHazard :
 public:
 	WaterHazard(int, int);
 	~WaterHazard();
+
 };
 

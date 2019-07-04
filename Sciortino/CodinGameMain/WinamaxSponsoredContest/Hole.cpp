@@ -20,11 +20,16 @@ void Hole::IncreaseWeight() {
 	weight += 1;
 }
 
-int Hole::GetWeight() {
+int& Hole::GetWeight() {
 	return weight;
 }
 
 void Hole::Fill()
 {
 	filled =true;
+}
+
+void Hole::Empty()
+{
+	filled = false;
 }

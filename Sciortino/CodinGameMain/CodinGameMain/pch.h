@@ -11,6 +11,8 @@
 
 // TODO: aggiungere qui le intestazioni da precompilare
 #include "..\ANEOSponsoredPuzzle\ANEOpuzzleExercise.h"
+#include "..\WinamaxSponsoredContest\DiscreteGolfTableSolver.h"
+
 #include <cstdlib>
 #include <iostream>
 #include <fstream>

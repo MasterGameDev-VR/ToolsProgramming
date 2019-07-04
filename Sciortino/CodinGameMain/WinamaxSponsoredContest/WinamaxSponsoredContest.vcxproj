@@ -150,6 +150,7 @@
     <ClInclude Include="Ball.h" />
     <ClInclude Include="DiscreteGolfTableSolver.h" />
     <ClInclude Include="Hole.h" />
+    <ClInclude Include="Directions.h" />
     <ClInclude Include="Map.h" />
     <ClInclude Include="MapObject.h" />
     <ClInclude Include="Path.h" />

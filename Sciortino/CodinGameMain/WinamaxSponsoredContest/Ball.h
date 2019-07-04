@@ -1,8 +1,5 @@
 #pragma once
-#include <vector>
-#include "Path.h"
-#include "MapObject.h"
-using namespace std;
+
 class Ball : public MapObject
 {
 public:
@@ -10,9 +7,9 @@ public:
 	~Ball();
 
 	int GetPower();
-	void LoadPaths(vector<Path>&);
+	void LoadPaths(std::vector<Path>*);
 
-	vector<Path> paths;
+	std::vector<Path>* paths;
 
 private:
 	int power;

@@ -1,15 +1,10 @@
 #pragma once
-#include <vector>
-#include <set>
-#include <algorithm>
-#include<iterator>
-#include "Ball.h"
-#include "Hole.h"
-#include "WaterHazard.h"
+#include <iostream>
+#include <ostream>
 
-#include "DiscreteGolfTableSolver.h"
 
-using namespace std;
+
+
 class Map
 {
 public:
@@ -21,30 +16,39 @@ public:
 	void BuildAllPaths();
 	
 	void SearchValidPaths();
+	
+	std::string* GetMapTableString();
+	int GetWidth();
+	int GetHeight();
+
+	void PrintMap();
+	
+	std::vector<MapObject*> map_table;
+
 private:
 
-	vector<Ball> balls;
-	vector <Hole> holes;
+	std::vector<Ball*> balls;
+	std::vector<Hole*> holes;
 	std::string map_table_str;
-	std::vector<MapObject> map_table;
 	int dim[2];
 
 	void LoadMap();
 
-	Directions RevertDirection(Directions);
+	Directions RevertDirection( Directions );
 
 	//BuildPossiblePathsOfOneBall è un metodo ricorsivo che costruisce
 	//tutte le traiettorie per una sola Ball
-	std::vector<Path>& BuildPossiblePathsOfOneBall(int, Path&, Directions);
+	std::vector<Path>* BuildPossiblePathsOfOneBall(int, Path&, Directions);
 	//il metodo CheckMove costruisce i singoli segmenti rettilinei di traiettoria
 	Path& CheckMove(Path&, Directions, int);
 
 	bool ImplementPath(Path&);
 	bool MakeLine(Path&, int);
 
-	MapObject&& GetDirectionModifier(Directions);
+	MapObject& GetDirectionModifier(Directions);
+	MapObject directionModifier = MapObject(0,0,true);
 
-	bool IsInTheMap(MapObject&);
+	bool IsInTheMap(MapObject*);
 
 };
 

@@ -1,5 +1,4 @@
 #pragma once
-#include "MapObject.h"
 class Hole : public MapObject
 {
 public:
@@ -8,8 +7,9 @@ public:
 
 	bool IsFilled();
 	void IncreaseWeight();
-	int GetWeight();
+	int& GetWeight();
 	void Fill();
+	void Empty();
 
 private:
 	int weight = 0;

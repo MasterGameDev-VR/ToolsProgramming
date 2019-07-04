@@ -41,7 +41,7 @@ DiscreteGolfTableSolver::DiscreteGolfTableSolver(string fileName)
 	streambuf* cinbuffer = cin.rdbuf(inputFile.rdbuf());
 
 	cin >> width >> height; cin.ignore();
-	for (unsigned int i = 0; i < height; i++) {
+	for (int i = 0; i < height; i++) {
 		std::string row;
 		cin >> row; cin.ignore();
 		table.append(row);
@@ -60,5 +60,14 @@ DiscreteGolfTableSolver::~DiscreteGolfTableSolver()
 
 void DiscreteGolfTableSolver::Execute() 
 {
+	Map mapInstance(width, height, table);
 
+	mapInstance.PrintMap();
+	//ricorsione per determinare tutte le traiettorie possibili per ciascuna pallina
+	//a prescindere dalle possibili intersezioni tra esse
+	mapInstance.BuildAllPaths(); 
+	//algoritmo di backtracking che assembla alcune di esse in una soluzione ammissibile
+	mapInstance.SearchValidPaths();
+
+	mapInstance.PrintMap();
 }

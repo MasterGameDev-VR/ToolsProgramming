@@ -11,6 +11,21 @@
 // File di intestazione di Windows
 #include <windows.h>
 
+#include <vector>
+#include <set>
+#include <algorithm>
+#include<iterator>
+
+#include "Directions.h"
+#include "MapObject.h"
+#include "Hole.h"
+#include "WaterHazard.h"
+#include "Path.h"
+#include "Ball.h"
+#include "Map.h"
+
+
+
 
 
 // fare riferimento qui alle intestazioni aggiuntive richieste dal programma
