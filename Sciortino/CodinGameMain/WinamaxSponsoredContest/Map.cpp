@@ -2,16 +2,16 @@
 #include "Map.h"
 using namespace std;
 struct SortPaths {
-	bool operator() (Path& first_path, Path& second_path)
+	bool operator() (Path* first_path, Path* second_path)
 	{
-		return (first_path.GetHolePtr()->GetWeight() < second_path.GetHolePtr()->GetWeight());
+		return (first_path->GetHolePtr()->GetWeight() < second_path->GetHolePtr()->GetWeight());
 	}
 };
 
 struct SortBalls {
 	bool operator() (Ball* first_ball, Ball* second_ball)
 	{
-		return ((*(*first_ball).paths).size() < (*(*second_ball).paths).size());
+		return ((first_ball->paths).size() < (second_ball->paths).size());
 	}
 };
 
@@ -61,7 +61,7 @@ void Map::LoadMap() {
 	}
 }
 
-std::vector<Path>* Map::BuildPossiblePathsOfOneBall(int power, Path& pathToExtend, Directions direction = Directions::none) {
+std::vector<Path*> Map::BuildPossiblePathsOfOneBall(int power, Path* pathToExtend, Directions direction = Directions::none) {
 	
 	std::set<Directions> possibleDirections;
 	possibleDirections.insert({ Directions::up ,Directions::down, Directions::right, Directions::left });
@@ -69,31 +69,31 @@ std::vector<Path>* Map::BuildPossiblePathsOfOneBall(int power, Path& pathToExten
 		possibleDirections.erase(RevertDirection(direction));
 	}
 	
-	std::vector<Path>* outputPaths= new std::vector<Path>();
+	std::vector<Path*>* outputPaths= new std::vector<Path*>();
 	for (auto it = possibleDirections.begin(); it!=possibleDirections.end(); it++)
 	{
-		Path* newPath = new Path(CheckMove(pathToExtend.GetPath(), (*it), power));
-		if (!((*newPath).IsValid())) 
+		Path* newPath = new Path(CheckMove(pathToExtend->GetPath(), (*it), power));
+		if (!(newPath->IsValid()))
 		{
 			continue;
 		}
-		if ((*newPath).IsFinished())
+		if (newPath->IsFinished())
 		{
-			outputPaths->push_back((*newPath));
+			outputPaths->push_back(newPath);
 			continue;
 		}
 		if (power == 1) 
 		{
 			continue;
 		}
-		std::vector<Path>* outputPathsFromRecursion = BuildPossiblePathsOfOneBall(power - 1, (*newPath), (*it));
-		for (auto itRec = outputPathsFromRecursion->begin(); itRec != outputPathsFromRecursion->end(); itRec++) {
+		std::vector<Path*> outputPathsFromRecursion = BuildPossiblePathsOfOneBall(power - 1, newPath, (*it));
+		for (auto itRec = outputPathsFromRecursion.begin(); itRec != outputPathsFromRecursion.end(); itRec++) {
 			outputPaths->push_back(*itRec);
 		}
 
 	}
 	
-	return outputPaths;
+	return *outputPaths;
 }
 
 //questo metodo estende la traiettoria dopo aver effettuato i vari test nel punto finale
@@ -113,6 +113,7 @@ Path& Map::CheckMove(Path& pathToExtend, Directions directionToFollow, int curre
 		int newPointIndex= newPoint->GetRow() *dim[0] + newPoint->GetCol();
 		if (map_table[newPointIndex]->GetIsEmpty())
 		{
+			pathToExtend.Validate();
 			pathToExtend.AddPointObject(newPoint, newDirection);
 		}
 		else
@@ -122,6 +123,7 @@ Path& Map::CheckMove(Path& pathToExtend, Directions directionToFollow, int curre
 			WaterHazard* waterHazardPtr= dynamic_cast<WaterHazard*>(map_table[newPointIndex]);
 			if (holePtr != nullptr)
 			{
+				pathToExtend.Validate();
 				pathToExtend.ReachHole(newPoint, newDirection, holePtr);
 			}
 			else if (ballPtr != nullptr || waterHazardPtr!= nullptr)
@@ -141,8 +143,8 @@ void Map::BuildAllPaths()
 		startPoint->push_back(new MapObject((*balls[i]).GetCol(), (*balls[i]).GetRow(),false));
 		std::vector<Directions*> startDirection;
 		Path* startPath= new Path((*startPoint), startDirection,nullptr,true);
-		std::vector<Path>* paths = BuildPossiblePathsOfOneBall((*balls[i]).GetPower(), (*startPath));
-		(*balls[i]).LoadPaths(paths);
+		std::vector<Path*> paths = BuildPossiblePathsOfOneBall(balls[i]->GetPower(), startPath);
+		balls[i]->LoadPaths(paths);
 
 	}
 	std::vector<Ball*> ballsWithOnlyOnePath;
@@ -152,12 +154,12 @@ void Map::BuildAllPaths()
 	SortPaths comparePathsByHoleWeightsOperator;
 	SortBalls compareBallsByNumberOfPaths;
 	for (unsigned int i = 0; i < balls.size(); i++) {
-		sort((*balls[i]).paths->begin(), (*balls[i]).paths->end(), comparePathsByHoleWeightsOperator);
-		if ((*balls[i]).paths->size() == 1) {
+		sort((balls[i]->paths).begin(), (balls[i]->paths).end(), comparePathsByHoleWeightsOperator);
+		if ((balls[i]->paths).size() == 1) {
 			ballsWithOnlyOnePath.push_back(balls[i]);
 			continue;
 		}
-		Hole* holePtr= (*balls[i]).paths->begin()->GetHolePtr();
+		Hole* holePtr= (*(balls[i]->paths).begin())->GetHolePtr();
 		if (holePtr != nullptr) {
 			int myweightt = holePtr->GetWeight();
 			if (myweightt == 1) {
@@ -174,18 +176,18 @@ void Map::BuildAllPaths()
 	balls.insert(balls.end(), otherBalls.begin(), otherBalls.end());
 
 };
-bool Map::MakeLine(Path& pathToReadLineFrom, int moveNmbr) {
-	Directions moveDir = *pathToReadLineFrom.GetDirections()[moveNmbr];
+bool Map::MakeLine(Path* pathToReadLineFrom, int moveNmbr) {
+	Directions moveDir = *pathToReadLineFrom->GetDirections()[moveNmbr];
 	GetDirectionModifier(moveDir);
-	MapObject beginPoint =*pathToReadLineFrom.GetPositions()[moveNmbr];
-	MapObject endPoint = *pathToReadLineFrom.GetPositions()[moveNmbr+1];
+	MapObject beginPoint =*pathToReadLineFrom->GetPositions()[moveNmbr];
+	MapObject endPoint = *pathToReadLineFrom->GetPositions()[moveNmbr+1];
 	MapObject nowPoint = beginPoint;
 
 	int row_now = nowPoint.GetRow();
 	int col_now = nowPoint.GetCol();
 	while (nowPoint.GetCol() != endPoint.GetCol() || nowPoint.GetRow() != endPoint.GetRow()) 
 	{
-		pathToReadLineFrom.BackUp(col_now, row_now, map_table_str[row_now*dim[0] + col_now]);
+		pathToReadLineFrom->BackUp(col_now, row_now, map_table_str[row_now*dim[0] + col_now]);
 		map_table_str[row_now*dim[0] + col_now] = (char)moveDir;
 
 		nowPoint = MapObject(nowPoint.GetCol() +  directionModifier.GetCol(), nowPoint.GetRow() + directionModifier.GetRow(), false);
@@ -213,13 +215,13 @@ bool Map::MakeLine(Path& pathToReadLineFrom, int moveNmbr) {
 	return true;
 }
 
-bool Map::ImplementPath(Path& pathToImplement) {
-	for (unsigned int moveNmbr = 0; moveNmbr < pathToImplement.GetPositions().size(); moveNmbr++)
+bool Map::ImplementPath(Path* pathToImplement) {
+	for (unsigned int moveNmbr = 0; moveNmbr < pathToImplement->GetPositions().size(); moveNmbr++)
 	{
 		bool success = MakeLine(pathToImplement, moveNmbr);
 		if (!success) 
 		{
-			pathToImplement.Restore(*this);
+			pathToImplement->Restore(*this);
 			return false;
 		}
 	}
@@ -233,7 +235,7 @@ void Map::SearchValidPaths()
 	std::vector<std::pair<int, Path*>> toRevertPaths;
 	while (0 <= ballsIndex && ballsIndex < balls.size()) 
 	{
-		if (pathsIndex >= (*(*balls[ballsIndex]).paths).size()) {
+		if (pathsIndex >= (balls[ballsIndex]->paths).size()) {
 			if (toRevertPaths.size() == 0) 
 			{
 				break;
@@ -253,17 +255,17 @@ void Map::SearchValidPaths()
 		}
 
 		bool stepValid = false;
-		if ((*(*balls[ballsIndex]).paths)[pathsIndex].GetHolePtr()->IsFilled())
+		if (  (balls[ballsIndex])->paths[pathsIndex]->GetHolePtr()->IsFilled())
 		{
 			stepValid = false;
 		}
 		else 
 		{
-			stepValid = ImplementPath((*(*balls[ballsIndex]).paths)[pathsIndex]);
+			stepValid = ImplementPath((balls[ballsIndex])->paths[pathsIndex]);
 		}
 		if (stepValid) {
-			(*(*balls[ballsIndex]).paths)[pathsIndex].GetHolePtr()->Fill();
-			toRevertPaths.push_back(std::make_pair(pathsIndex, &(*(*balls[ballsIndex]).paths)[pathsIndex]));
+			(balls[ballsIndex])->paths[pathsIndex]->GetHolePtr()->Fill();
+			toRevertPaths.push_back(std::make_pair(pathsIndex, (balls[ballsIndex])->paths[pathsIndex]));
 			ballsIndex += 1;
 			pathsIndex = 0;
 			continue;
@@ -353,5 +355,9 @@ void Map::PrintMap()
 	std::cout << endl;
 	std::cout << endl;
 	std::cout << endl;
+}
+void Map::WriteMapTableString(int index, char content) {
+	map_table_str[index] = content;
+
 }
 

@@ -18,6 +18,8 @@ public:
 	void SearchValidPaths();
 	
 	std::string* GetMapTableString();
+	void WriteMapTableString(int, char);
+
 	int GetWidth();
 	int GetHeight();
 
@@ -38,12 +40,12 @@ private:
 
 	//BuildPossiblePathsOfOneBall è un metodo ricorsivo che costruisce
 	//tutte le traiettorie per una sola Ball
-	std::vector<Path>* BuildPossiblePathsOfOneBall(int, Path&, Directions);
+	std::vector<Path*> BuildPossiblePathsOfOneBall(int, Path*, Directions);
 	//il metodo CheckMove costruisce i singoli segmenti rettilinei di traiettoria
 	Path& CheckMove(Path&, Directions, int);
 
-	bool ImplementPath(Path&);
-	bool MakeLine(Path&, int);
+	bool ImplementPath(Path*);
+	bool MakeLine(Path*, int);
 
 	MapObject& GetDirectionModifier(Directions);
 	MapObject directionModifier = MapObject(0,0,true);

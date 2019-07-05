@@ -16,7 +16,7 @@ int main()
 	}
 	
 	std::string WinamaxSponsoredContestTestsPath{ "..\\WinamaxSponsoredContest\\Tests\\WinamaxSponsoredContestTest" };
-	for (unsigned int i = 1; i <= 4; i++) {
+	for (unsigned int i = 2; i <= 4; i++) {
 	
 		DiscreteGolfTableSolver exercise(WinamaxSponsoredContestTestsPath + std::to_string(i) + PathTermination);
 		exercise.Execute();

@@ -7,9 +7,9 @@ public:
 	~Ball();
 
 	int GetPower();
-	void LoadPaths(std::vector<Path>*);
+	void LoadPaths(std::vector<Path*>);
 
-	std::vector<Path>* paths;
+	std::vector<Path*> paths;
 
 private:
 	int power;

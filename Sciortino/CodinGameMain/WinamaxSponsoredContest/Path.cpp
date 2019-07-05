@@ -65,6 +65,10 @@ void Path::ReachHole(MapObject* newMapPointObject, Directions* newDirection, Hol
 void Path::Invalidate() {
 	isValid = false;
 }
+
+void Path::Validate() {
+	isValid = true;
+}
 bool Path::IsFinished() {
 	return (pathEndHole != nullptr);
 }
@@ -101,7 +105,8 @@ void Path::Restore(Map& mapToRestore) {
 		int col_index = backupMapObjs[i].first.first;
 
 		int row_index = backupMapObjs[i].first.second;
-		map_table_str_ptr[row_index*width + col_index] = backupMapObjs[i].second;
+		//map_table_str_ptr->replace(row_index*width + col_index, 1, &backupMapObjs[i].second);
+		mapToRestore.WriteMapTableString(row_index*width + col_index, backupMapObjs[i].second);
 	}
 	backupMapObjs.clear();
 }

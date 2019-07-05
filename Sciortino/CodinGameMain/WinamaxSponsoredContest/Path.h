@@ -21,6 +21,7 @@ public:
 	void ReachHole(MapObject*, Directions*, Hole*);
 
 	void Invalidate();
+	void Validate();
 	bool IsFinished();
 	bool IsValid();
 
@@ -39,8 +40,8 @@ public:
 private:
 	std::vector<MapObject*> pathMapObjects;
 	std::vector<Directions*> directions;
-	Hole* pathEndHole = nullptr;
 	bool isValid = true;
+	Hole* pathEndHole = nullptr;
 
 	std::vector<std::pair<std::pair<int, int>, char>> backupMapObjs;
 };
