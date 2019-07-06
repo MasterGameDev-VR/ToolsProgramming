@@ -27,11 +27,12 @@ public:
 	ANEOpuzzleExercise(std::string);
 	~ANEOpuzzleExercise();
 	void Execute();
-
+	void PrintTrafficLightsTable();
 	
 
 private:
 	bool CheckIfTheIthTrafficLightIsRed(const int, const int, int);
+
 
 	int speed;
 	int lightCount;

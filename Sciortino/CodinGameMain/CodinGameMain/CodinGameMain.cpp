@@ -4,25 +4,57 @@
 #include "pch.h"
 #include <iostream>
 #include <vector>
-
+using namespace std;
 int main()
 {
-	//D:\\progetti_Master\\Tools_Zamprogno_esame\\Sciortino\\CodinGameMain
-	std::string ANEOSponsoredPuzzleTestsPath{ "..\\ANEOSponsoredPuzzle\\Tests\\ANEOSponsoredPuzzleTest" };
-	std::string PathTermination{ ".txt" };
-	for (unsigned int i = 1; i <= 10; i++) {
-		ANEOpuzzleExercise exercise{ ANEOSponsoredPuzzleTestsPath + std::to_string(i)+ PathTermination};
-		exercise.Execute();
-	}
-	
-	std::string WinamaxSponsoredContestTestsPath{ "..\\WinamaxSponsoredContest\\Tests\\WinamaxSponsoredContestTest" };
-	for (unsigned int i = 2; i <= 4; i++) {
-	
-		DiscreteGolfTableSolver exercise(WinamaxSponsoredContestTestsPath + std::to_string(i) + PathTermination);
-		exercise.Execute();
-	}
+	streambuf* cinbuffer = cin.rdbuf();
+	string ANEOSponsoredPuzzleTestsPath{ "..\\ANEOSponsoredPuzzle\\Tests\\ANEOSponsoredPuzzleTest" };
+	string PathTermination{ ".txt" };
+	string WinamaxSponsoredContestTestsPath{ "..\\WinamaxSponsoredContest\\Tests\\WinamaxSponsoredContestTest" };
 
-	
+	cout << "     PROGETTI TOOLS - VITTORIO SCIORTINO A.A. 2018 - 2019  " <<endl<<endl;
+	cout << "     1. ANEO Sponsored Puzzle Tests: calcola la velocità massima per poter attraversare" << endl;
+	cout << "        una serie di semafori senza rallentare." << endl << endl;
+	cout << "     2. Winamax Sponsored Contest Tests: risolve tabelle che rappresentano campi da golf," << endl;
+	cout << "        in cui le palline inizialmente sono rappresentate da numeri e si possono muovere" << endl;
+	cout << "        solo in orizzontale o in verticale del numero di celle fissato dal numero, il quale " << endl;
+	cout << "        diminuisce ogni volta di 1, riducendo il numero di passi per la volta successiva; " << endl;
+	cout << "        l'algoritmo sfrutta la ricorsione per trovare tutte le possibili traiettorie per ciascuna " << endl;
+	cout << "        pallina, e successivamente il backtracking per assemblare queste traiettorie scegliendone una " << endl;
+	cout << "        sola per pallina; si torna indietro ogni volta che le traiettorie si intersecano o che attraversano " << endl;
+	cout << "        una cella con una pallina - numero o una buca - lettera H; X rappresenta il water hazard." << endl << endl;
+	cout << "     0. Uscita "<< endl << endl << endl;
+	while (true) 
+	{
+		cout << "   INPUT A VALID KEY   " << endl;
+		char selector;
+		cin.rdbuf(cinbuffer);
+		cin >> selector;
+		switch (selector) 
+		{
+		case '1':
+			for (unsigned int i = 1; i <= 10; i++) {
+				ANEOpuzzleExercise exercise{ ANEOSponsoredPuzzleTestsPath + std::to_string(i) + PathTermination };
+				exercise.PrintTrafficLightsTable();
+				exercise.Execute();
+			}
+		
+			break;
+		case '2':
+			for (unsigned int i = 1; i <= 21; i++) {
+
+				DiscreteGolfTableSolver exercise(WinamaxSponsoredContestTestsPath + std::to_string(i) + PathTermination);
+				exercise.Execute();
+			}
+			break;
+		case '0':
+			return 0;
+		default:
+			cout <<"  Wrong key pressed! Try again!  " << endl << endl;
+			break;
+		}
+
+	}
 }
 
 // Per eseguire il programma: CTRL+F5 oppure Debug > Avvia senza eseguire debug

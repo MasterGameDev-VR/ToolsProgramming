@@ -28,9 +28,6 @@ ANEOpuzzleExercise::~ANEOpuzzleExercise()
 {
 }
 
-//, std::allocator<float>
-//, std::allocator<int>
-
 bool ANEOpuzzleExercise::CheckIfTheIthTrafficLightIsRed(const int distance,  const int duration,const int speed)
 {
 	// questo metodo deve ritornare true solo se il tempo di arrivo NON è compreso in uno
@@ -121,4 +118,17 @@ void ANEOpuzzleExercise::Execute() {
 	// To debug: cerr << "Debug messages..." << endl;
 
 	std::cout << answer << std::endl;
+}
+
+void ANEOpuzzleExercise::PrintTrafficLightsTable() 
+{
+	cout << "max allowed speed (km/h):  " << speed << endl << endl;
+	cout << "traffic lights number:  " << lightCount << endl << endl;
+	cout << endl;
+	cout << "distance (m) \t\t red/green duration (s)" << endl << endl;
+	for (unsigned int i = 0; i < lightCount; i++) 
+	{
+		cout << distances[i] << "\t\t\t" << durations[i] << endl;
+	}
+
 }
