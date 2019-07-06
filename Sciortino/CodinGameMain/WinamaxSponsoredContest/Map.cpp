@@ -61,7 +61,7 @@ void Map::LoadMap() {
 	}
 }
 
-std::vector<Path*> Map::BuildPossiblePathsOfOneBall(int power, Path* pathToExtend, Directions direction = Directions::none) {
+std::vector<Path*> Map::BuildPossiblePathsOfOneBall(int power, Path* pathToCopy, Directions direction = Directions::none) {
 	
 	std::set<Directions> possibleDirections;
 	possibleDirections.insert({ Directions::up ,Directions::down, Directions::right, Directions::left });
@@ -72,21 +72,22 @@ std::vector<Path*> Map::BuildPossiblePathsOfOneBall(int power, Path* pathToExten
 	std::vector<Path*>* outputPaths= new std::vector<Path*>();
 	for (auto it = possibleDirections.begin(); it!=possibleDirections.end(); it++)
 	{
-		Path* newPath = new Path(CheckMove(pathToExtend->GetPath(), (*it), power));
-		if (!(newPath->IsValid()))
+		Path* newPathDuplicate = new Path(*pathToCopy);
+		newPathDuplicate = new Path(CheckMove(*newPathDuplicate, (*it), power));
+		if (!(newPathDuplicate->IsValid()))
 		{
 			continue;
 		}
-		if (newPath->IsFinished())
+		if (newPathDuplicate->IsFinished())
 		{
-			outputPaths->push_back(newPath);
+			outputPaths->push_back(newPathDuplicate);
 			continue;
 		}
 		if (power == 1) 
 		{
 			continue;
 		}
-		std::vector<Path*> outputPathsFromRecursion = BuildPossiblePathsOfOneBall(power - 1, newPath, (*it));
+		std::vector<Path*> outputPathsFromRecursion = BuildPossiblePathsOfOneBall(power - 1, newPathDuplicate, (*it));
 		for (auto itRec = outputPathsFromRecursion.begin(); itRec != outputPathsFromRecursion.end(); itRec++) {
 			outputPaths->push_back(*itRec);
 		}
@@ -185,17 +186,31 @@ bool Map::MakeLine(Path* pathToReadLineFrom, int moveNmbr) {
 
 	int row_now = nowPoint.GetRow();
 	int col_now = nowPoint.GetCol();
-	while (nowPoint.GetCol() != endPoint.GetCol() || nowPoint.GetRow() != endPoint.GetRow()) 
+	while (col_now != endPoint.GetCol() || row_now != endPoint.GetRow())
 	{
+
+		if (map_table_str[row_now*dim[0] + col_now] == HOLE)
+		{
+			return false;
+			/*
+			if (col_now == endPoint.GetCol() && row_now == endPoint.GetRow())
+			{
+				pathToReadLineFrom->BackUp(col_now, row_now, map_table_str[row_now*dim[0] + col_now]);
+				map_table_str[row_now*dim[0] + col_now] = 'o';
+				return true;
+			}
+			else {
+				return false;
+			}
+			*/
+		}
 		pathToReadLineFrom->BackUp(col_now, row_now, map_table_str[row_now*dim[0] + col_now]);
 		map_table_str[row_now*dim[0] + col_now] = (char)moveDir;
 
-		nowPoint = MapObject(nowPoint.GetCol() +  directionModifier.GetCol(), nowPoint.GetRow() + directionModifier.GetRow(), false);
+		nowPoint = MapObject(nowPoint.GetCol() + directionModifier.GetCol(), nowPoint.GetRow() + directionModifier.GetRow(), false);
 		row_now = nowPoint.GetRow();
 		col_now = nowPoint.GetCol();
-		if (map_table_str[row_now*dim[0] + col_now] == HOLE) {
-			return false;
-		}
+		
 		if (isdigit(map_table_str[row_now*dim[0] + col_now])) {
 			return false;
 		}
@@ -211,12 +226,13 @@ bool Map::MakeLine(Path* pathToReadLineFrom, int moveNmbr) {
 		if (map_table_str[row_now*dim[0] + col_now] == (char)Directions::left) {
 			return false;
 		}
+		
 	}
 	return true;
 }
 
 bool Map::ImplementPath(Path* pathToImplement) {
-	for (unsigned int moveNmbr = 0; moveNmbr < pathToImplement->GetPositions().size(); moveNmbr++)
+	for (unsigned int moveNmbr = 0; moveNmbr < pathToImplement->GetDirections().size(); moveNmbr++)
 	{
 		bool success = MakeLine(pathToImplement, moveNmbr);
 		if (!success) 

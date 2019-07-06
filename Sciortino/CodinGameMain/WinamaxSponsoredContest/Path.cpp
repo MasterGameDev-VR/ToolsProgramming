@@ -61,6 +61,7 @@ void Path::AddPointObject(MapObject* newMapPointObject, Directions* newDirection
 void Path::ReachHole(MapObject* newMapPointObject, Directions* newDirection, Hole* newPathEndHole) {
 	AddPointObject(newMapPointObject, newDirection);
 	pathEndHole = newPathEndHole;
+	pathEndHole->Empty();
 }
 void Path::Invalidate() {
 	isValid = false;
