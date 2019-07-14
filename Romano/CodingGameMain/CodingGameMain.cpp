@@ -19,14 +19,14 @@ void GetPathsInDirectory(const std::string& directoryPath, StringVector& paths)
 
 int main()
 {
-	const std::string hiddenWordTestsPrefix = "..\\Tests\\HiddenWord\\";
-	const std::string numberOfLettersInANumberTestsPrefix = "..\\Tests\\NumberOfLettersInANumber\\";
-	const std::string palindromicDecompositionTestsPrefix = "..\\Tests\\PalindromicDecomposition\\";
+	const std::string hiddenWordTestsDir = "..\\Tests\\HiddenWord\\";
+	const std::string numberOfLettersInANumberTestsDir = "..\\Tests\\NumberOfLettersInANumber\\";
+	const std::string palindromicDecompositionTestsDir = "..\\Tests\\PalindromicDecomposition\\";
 
 	{
 		StringVector paths;
 
-		GetPathsInDirectory(hiddenWordTestsPrefix, paths);
+		GetPathsInDirectory(hiddenWordTestsDir, paths);
 
 		std::cout << "Risultati (esercizio 1 - Hidden Word):" << std::endl;
 
@@ -43,7 +43,7 @@ int main()
 	{
 		StringVector paths;
 
-		GetPathsInDirectory(numberOfLettersInANumberTestsPrefix, paths);
+		GetPathsInDirectory(numberOfLettersInANumberTestsDir, paths);
 
 		std::cout << "\nRisultati (esercizio 2 - Number of letters in a number, binary):" << std::endl;
 
@@ -60,7 +60,7 @@ int main()
 	{
 		StringVector paths;
 
-		GetPathsInDirectory(palindromicDecompositionTestsPrefix, paths);
+		GetPathsInDirectory(palindromicDecompositionTestsDir, paths);
 
 		std::cout << "\nRisultati (esercizio 3 - Palindromic Decomposition):" << std::endl;
 
