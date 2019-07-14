@@ -43,16 +43,12 @@ Novati/GameOfLife/Release/
 ==============
 Romano/.vs/
 Romano/Debug/
+Romano/x64/Debug/
 Romano/CodinGameMain/Debug/
 Romano/HiddenWord/Debug/
 Romano/NumberOfLettersInANumber/Debug/
 Romano/PalindromicDecomposition/Debug/
 =======
-
-Gullotta/.vs/
-Gullotta/Debug/
-Gullotta/x64/Debug/
-Gullotta/CodinGameMain/Debug/
-Gullotta/CodinGameMain/x64/
-Gullotta/SumofDivisors/x64/Debug/
-Gullotta/THESE ROMANS ARE CRAZY!/x64/Debug/
+Romano/PalindromicDecomposition/x64/Debug/PalindromicDecomposition.pch
+Romano/NumberOfLettersInANumber/x64/Debug/NumberOfLettersInANumber.pch
+Romano/HiddenWord/x64/Debug/HiddenWord.pch
