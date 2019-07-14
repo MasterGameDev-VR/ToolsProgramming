@@ -49,6 +49,73 @@ namespace HiddenWord
 		}
 	}
 
+	// Copy constructor
+	HiddenWordStriker::HiddenWordStriker(const HiddenWordStriker & other) 
+					  : _keywords(other._keywords),
+						_rows(other._rows),
+						_cols(other._cols)
+	{
+		try
+		{
+			_charMatrix = new char*[_rows];
+			_flagMatrix = new bool*[_rows];
+
+			for (int i = 0; i < _rows; i++)
+			{
+				_charMatrix[i] = new char[_cols];
+				_flagMatrix[i] = new bool[_cols];
+
+				for (int j = 0; j < _cols; j++)
+				{
+					_charMatrix[i][j] = other._charMatrix[i][j];
+					_flagMatrix[i][j] = other._flagMatrix[i][j];
+				}
+			}
+		}catch (const std::bad_alloc& e)
+		{
+				std::cout << "CC, Matrix allocation has failed: " << e.what() << std::endl;
+				std::exit(1);
+		}
+	}
+
+	// Copy assignment operator
+	HiddenWordStriker& HiddenWordStriker::operator=(const HiddenWordStriker & other)
+	{
+		if (this != &other)
+		{
+			for (int i = 0; i < _rows; i++)
+			{
+				delete[] _charMatrix[i];
+				delete[] _flagMatrix[i];
+			}
+
+			delete[] _charMatrix;
+			delete[] _flagMatrix;
+
+			_keywords = other._keywords;
+			_rows = other._rows;
+			_cols = other._cols;
+
+			_charMatrix = other._charMatrix;
+			_flagMatrix = other._flagMatrix;
+		}
+
+		return *this;
+	}
+
+	// Distruttore
+	HiddenWordStriker::~HiddenWordStriker()
+	{
+		for (int i = 0; i < _rows; i++)
+		{
+			delete[] _charMatrix[i];
+			delete[] _flagMatrix[i];
+		}
+
+		delete[] _charMatrix;
+		delete[] _flagMatrix;
+	}
+
 	void HiddenWordStriker::Execute()
 	{
 		for (const std::string& keyword : _keywords)

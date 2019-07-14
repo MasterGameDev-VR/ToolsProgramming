@@ -39,8 +39,13 @@ namespace HiddenWord
 												           {Direction::diagonalR2LU2D, 1, -1},
 												           {Direction::verticalU2D, 1, 0},
 												           {Direction::diagonalL2RU2D, 1, 1} };
-
+		HiddenWordStriker() {};
 		HiddenWordStriker(const std::string& filePath);
+		HiddenWordStriker(const HiddenWordStriker& other);
+		HiddenWordStriker& operator=(const HiddenWordStriker& other);
+
+		virtual ~HiddenWordStriker();
+
 		void Execute();
 
 		bool searchInAllDirections(int atRow, 
@@ -50,6 +55,8 @@ namespace HiddenWord
 	private:
 		std::vector<std::string> _keywords;
 		char** _charMatrix;
+		// La seguente potrebbe essere compressa per un utilizzo di memoria più efficiente
+		// utilizzando operatori bitwise o un tipo bitset ma per chiarezza la si lascia com'è
 		bool** _flagMatrix;
 
 		int _rows;

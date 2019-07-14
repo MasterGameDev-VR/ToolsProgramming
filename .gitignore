@@ -49,3 +49,6 @@ Romano/HiddenWord/Debug/
 Romano/NumberOfLettersInANumber/Debug/
 Romano/PalindromicDecomposition/Debug/
 =======
+Romano/PalindromicDecomposition/x64/Debug/PalindromicDecomposition.pch
+Romano/NumberOfLettersInANumber/x64/Debug/NumberOfLettersInANumber.pch
+Romano/HiddenWord/x64/Debug/HiddenWord.pch
