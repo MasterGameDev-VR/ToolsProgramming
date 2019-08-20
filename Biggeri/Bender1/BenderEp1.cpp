@@ -2,7 +2,6 @@
 #include "BenderEp1.h"
 #include <iostream>
 #include <fstream>
-#include <algorithm>
 
 using std::ifstream;
 using std::cin;

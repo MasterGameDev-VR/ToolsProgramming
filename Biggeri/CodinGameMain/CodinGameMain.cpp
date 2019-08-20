@@ -4,6 +4,7 @@
 #include <iostream>
 #include <fstream>
 #include "..\Bender1\BenderEp1.h"
+#include "..\WarStatic\War.h"
 
 using std::cin;
 using std::cout;
@@ -19,11 +20,12 @@ int main() {
 		cin.rdbuf(backup);
 
 		cout << "Biggeri" << endl;
-		cout << "Tools" << endl;
+		cout << "Tools" << endl << endl;
 		cout << "1) Bender" << endl;
+		cout << "2) War" << endl;
 
 		cout << endl;
-		cout << "Inserire numero";
+		cout << "Inserire numero" << endl;
 
 		int selection;
 		cin >> selection;
@@ -33,7 +35,7 @@ int main() {
 			return 0;
 		case 1:
 		{
-			cout << "Inserire numero test, da 0 a 11";
+			cout << "Inserire numero test, da 0 a 11" << endl;
 
 			cin >> selection;
 			std::string file = "..\\Bender1\\Test\\"+ std::to_string(selection) +".txt";
@@ -42,8 +44,29 @@ int main() {
 			{
 				cout << "File inesistente" << endl;
 			}
-			BenderEp1 bender1{ file };
-			bender1.Execute();
+			else
+			{
+				BenderEp1 bender1{ file };
+				bender1.Execute();
+			}
+			break;
+		}
+		case 2:
+		{
+			cout << "Inserire numero test, da 0 a 8" << endl;
+
+			cin >> selection;
+			std::string file = "..\\WarStatic\\Test\\" + std::to_string(selection) + ".txt";
+			std::ifstream inputFileStream{ file };
+			if (!inputFileStream.good())
+			{
+				cout << "File inesistente" << endl;
+			}
+			else
+			{
+				War war{ file };
+				war.Execute();
+			}
 			break;
 		}
 		default:
