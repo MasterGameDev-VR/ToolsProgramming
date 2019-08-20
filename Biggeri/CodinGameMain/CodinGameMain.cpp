@@ -1,12 +1,56 @@
 // CodinGameMain.cpp : Questo file contiene la funzione 'main', in cui inizia e termina l'esecuzione del programma.
 //
-
 #include "pch.h"
 #include <iostream>
+#include <fstream>
+#include "..\Bender1\BenderEp1.h"
 
-int main()
-{
-    std::cout << "Hello World!\n"; 
+using std::cin;
+using std::cout;
+using std::endl;
+
+
+
+int main() {
+	std::streambuf *backup;
+	backup = std::cin.rdbuf();
+
+	while (true) {
+		cin.rdbuf(backup);
+
+		cout << "Biggeri" << endl;
+		cout << "Tools" << endl;
+		cout << "1) Bender" << endl;
+
+		cout << endl;
+		cout << "Inserire numero";
+
+		int selection;
+		cin >> selection;
+
+		switch (selection) {
+		case 0:
+			return 0;
+		case 1:
+		{
+			cout << "Inserire numero test, da 0 a 11";
+
+			cin >> selection;
+			std::string file = "..\\Bender1\\Test\\"+ std::to_string(selection) +".txt";
+			std::ifstream inputFileStream{ file };
+			if (!inputFileStream.good())
+			{
+				cout << "File inesistente" << endl;
+			}
+			BenderEp1 bender1{ file };
+			bender1.Execute();
+			break;
+		}
+		default:
+			cout << "numero inesistente" << endl;
+		}
+		cout << endl;
+	}
 }
 
 // Per eseguire il programma: CTRL+F5 oppure Debug > Avvia senza eseguire debug
