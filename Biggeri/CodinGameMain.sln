@@ -9,6 +9,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Bender1", "Bender1\Bender1.
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "WarStatic", "WarStatic\WarStatic.vcxproj", "{0FD524FA-AD77-493D-9057-0A225864FBF6}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MayanCalculation", "..\Zamprogno\MayanCalculation\MayanCalculation.vcxproj", "{E714E622-AAD0-41F8-B654-B4CEEB1FCEF9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -41,6 +43,14 @@ Global
 		{0FD524FA-AD77-493D-9057-0A225864FBF6}.Release|x64.Build.0 = Release|x64
 		{0FD524FA-AD77-493D-9057-0A225864FBF6}.Release|x86.ActiveCfg = Release|Win32
 		{0FD524FA-AD77-493D-9057-0A225864FBF6}.Release|x86.Build.0 = Release|Win32
+		{E714E622-AAD0-41F8-B654-B4CEEB1FCEF9}.Debug|x64.ActiveCfg = Debug|x64
+		{E714E622-AAD0-41F8-B654-B4CEEB1FCEF9}.Debug|x64.Build.0 = Debug|x64
+		{E714E622-AAD0-41F8-B654-B4CEEB1FCEF9}.Debug|x86.ActiveCfg = Debug|Win32
+		{E714E622-AAD0-41F8-B654-B4CEEB1FCEF9}.Debug|x86.Build.0 = Debug|Win32
+		{E714E622-AAD0-41F8-B654-B4CEEB1FCEF9}.Release|x64.ActiveCfg = Release|x64
+		{E714E622-AAD0-41F8-B654-B4CEEB1FCEF9}.Release|x64.Build.0 = Release|x64
+		{E714E622-AAD0-41F8-B654-B4CEEB1FCEF9}.Release|x86.ActiveCfg = Release|Win32
+		{E714E622-AAD0-41F8-B654-B4CEEB1FCEF9}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

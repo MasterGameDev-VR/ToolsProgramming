@@ -163,12 +163,18 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\Zamprogno\MayanCalculation\MayanCalculation.vcxproj">
+      <Project>{e714e622-aad0-41f8-b654-b4ceeb1fcef9}</Project>
+    </ProjectReference>
     <ProjectReference Include="..\Bender1\Bender1.vcxproj">
       <Project>{60d66c4d-9d97-411f-b2bf-8218ee4cdc04}</Project>
     </ProjectReference>
     <ProjectReference Include="..\WarStatic\WarStatic.vcxproj">
       <Project>{0fd524fa-ad77-493d-9057-0a225864fbf6}</Project>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\Zamprogno\README.md" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
