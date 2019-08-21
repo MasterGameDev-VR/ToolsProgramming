@@ -5,6 +5,7 @@
 #include <fstream>
 #include "..\Bender1\BenderEp1.h"
 #include "..\WarStatic\War.h"
+#include "..\..\Zamprogno\MayanCalculation\MayanCalculation.h"
 
 using std::cin;
 using std::cout;
@@ -23,6 +24,7 @@ int main() {
 		cout << "Tools" << endl << endl;
 		cout << "1) Bender" << endl;
 		cout << "2) War" << endl;
+		cout << "3) MayanCalculations" << endl;
 
 		cout << endl;
 		cout << "Inserire numero" << endl;
@@ -66,6 +68,24 @@ int main() {
 			{
 				War war{ file };
 				war.Execute();
+			}
+			break;
+		}
+		case 3:
+		{
+			cout << "Inserire numero test, da 0 a 11" << endl;
+
+			cin >> selection;
+			std::string file = "..\\..\\Zamprogno\\MayanCalculation\\Test\\" + std::to_string(selection) + ".txt";
+			std::ifstream inputFileStream{ file };
+			if (!inputFileStream.good())
+			{
+				cout << "File inesistente" << endl;
+			}
+			else
+			{
+				MayanCalculation mayanCalculation{ file };
+				mayanCalculation.Execute();
 			}
 			break;
 		}
