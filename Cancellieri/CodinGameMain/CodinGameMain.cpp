@@ -6,10 +6,12 @@
 
 #include "../StockExchangeLosses/StockExchangeLosses.h"
 #include "../War/War.h"
+#include "../../Zamprogno/MayanCalculation/MayanCalculation.h"
 #include "CodinGameMain.h"
 
 #define MAXTESTS1 6
 #define MAXTESTS2 6
+#define MAXTESTS3 12
 
 size_t ChooseTestID(size_t maxID)
 {
@@ -82,6 +84,26 @@ void WarProgram()
 }
 
 
+void MayanCalculationProgram()
+{
+	size_t testID = ChooseTestID(MAXTESTS3);
+
+	if (testID == 0)
+	{
+		for (size_t i = 1; i <= MAXTESTS3; i++)
+		{
+			MayanCalculation program{ "..\\..\\Zamprogno\\MayanCalculation\\Tests\\MayanCalculation_test_" + std::to_string(i) + ".txt" };
+			program.Execute();
+		}
+	}
+	else
+	{
+		MayanCalculation program{ "..\\..\\Zamprogno\\MayanCalculation\\Tests\\MayanCalculation_test_" + std::to_string(testID) + ".txt" };
+		program.Execute();
+	}
+}
+
+
 int main()
 {
 	std::streambuf* buffer = std::cin.rdbuf();
@@ -94,6 +116,7 @@ int main()
 
 		std::cout << "1 - Stock Exchange Losses" << std::endl;
 		std::cout << "2 - War" << std::endl;
+		std::cout << "3 - MayanCalculations" << std::endl;
 		std::cout << "0 - Quit Program" << std::endl << std::endl;
 
 		std::cout << "Insert an ID to start a program: ";
@@ -109,6 +132,9 @@ int main()
 			break;
 		case 2:
 			WarProgram();
+			break;
+		case 3:
+			MayanCalculationProgram();
 			break;
 		default:
 			std::cout << "Wrong ID, try again" << std::endl;

@@ -4,49 +4,45 @@
 #include <iostream>
 #include <fstream>
 
-using namespace std;
-
-MayanCalculation::MayanCalculation(char *fileName)
+MayanCalculation::MayanCalculation(std::string fileName)
 {
-	//std::ifstream in(fileName);
-	//auto cinbuf = std::cin.rdbuf(in.rdbuf());
+	std::ifstream in(fileName);
+	auto cinbuf = std::cin.rdbuf(in.rdbuf());
 
-	ifstream input(fileName);
-
-	input >> L >> H; input.ignore();
+	std::cin >> L >> H; std::cin.ignore();
 	for (int i = 0; i < 20; ++i)
 		numbers.push_back(MayanNumber());
 
 	for (int i = 0; i < H; i++) {
 		string numeral;
-		input >> numeral; input.ignore();
+		std::cin >> numeral; std::cin.ignore();
 		for (int n = 0; n < 20; ++n)
 			numbers[n].digit.push_back(numeral.substr(n*L, L));
 	}
 
-	input >> S1; input.ignore();
+	std::cin >> S1; std::cin.ignore();
 	for (int i = 0; i < S1 / H; ++i)
 		firstMayanNumber.push_back(MayanNumber());
 
 	for (int i = 0; i < S1; i++) {
 		string num1Line;
-		input >> num1Line; input.ignore();
+		std::cin >> num1Line; std::cin.ignore();
 		firstMayanNumber[i / H].digit.push_back(num1Line);
 	}
 
-	input >> S2; input.ignore();
+	std::cin >> S2; std::cin.ignore();
 
 	for (int i = 0; i < S2 / H; ++i)
 		secondMayanNumber.push_back(MayanNumber());
 
 	for (int i = 0; i < S2; i++) {
 		string num2Line;
-		input >> num2Line; input.ignore();
+		std::cin >> num2Line; std::cin.ignore();
 		secondMayanNumber[i / H].digit.push_back(num2Line);
 	}
 
-	operation;
-	input >> operation; input.ignore();
+	std::cin >> operation; std::cin.ignore();
+
 }
 
 void MayanCalculation::Execute()
@@ -82,9 +78,9 @@ void MayanCalculation::Execute()
 	else if (operation.compare("-") == 0)
 		firstNumber -= secondNumber;
 	else if (operation.compare("*") == 0)
-		secondNumber *= firstNumber;
+		firstNumber *= secondNumber;
 	else if (operation.compare("/") == 0)
-		secondNumber /= firstNumber;
+		firstNumber /= secondNumber;
 
 	vector<int> digits;
 	double power = 1.0;
@@ -93,11 +89,15 @@ void MayanCalculation::Execute()
 	{
 		int mod = (int)fmod(firstNumber, 20.0);
 		digits.push_back(mod);
-		modf(firstNumber / 20, &firstNumber);
+		modf(firstNumber / 20.0, &firstNumber);
 	} while ((int)firstNumber > 0);
 
+	std::cout << std::endl;
 
-	for (auto digit : digits)
-		for (int i = 0; i < H; ++i)
-			cout << numbers[digit].digit[i] << endl;
+	for (vector<int>::const_reverse_iterator i = digits.crbegin(); i != digits.crend(); i++)
+		for (int j = 0; j < H; ++j)
+			cout << numbers[*i].digit[j] << endl;
+
+
+	std::cout << std::endl << "===================================" << std::endl;
 }
