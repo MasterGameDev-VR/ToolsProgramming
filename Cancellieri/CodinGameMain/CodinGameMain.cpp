@@ -5,12 +5,14 @@
 #include <string>
 
 #include "../StockExchangeLosses/StockExchangeLosses.h"
+#include "../War/War.h"
+#include "CodinGameMain.h"
 
 #define MAXTESTS1 6
+#define MAXTESTS2 6
 
 size_t ChooseTestID(size_t maxID)
 {
-	// qui la parte per farli partire tutti, con testvalue string che accetta la key 'all'
 	size_t testValue = 0;
 	char input;
 
@@ -60,19 +62,39 @@ void StockExchangeLossesProgram()
 }
 
 
+void WarProgram()
+{
+	size_t testID = ChooseTestID(MAXTESTS2);
+
+	if (testID == 0)
+	{
+		for (size_t i = 1; i <= MAXTESTS2; i++)
+		{
+			War program{ "..\\War\\Tests\\War_test_" + std::to_string(i) + ".txt" };
+			program.Execute();
+		}
+	}
+	else
+	{
+		War program{ "..\\War\\Tests\\War_test_" + std::to_string(testID) + ".txt" };
+		program.Execute();
+	}
+}
+
+
 int main()
 {
-	std::streambuf* backup = std::cin.rdbuf();
+	std::streambuf* buffer = std::cin.rdbuf();
 	
 	std::cout << "CodingGame - Andrea Cancellieri" << std::endl << std::endl;
 
 	while (true)
 	{
-		std::cin.rdbuf(backup);
+		std::cin.rdbuf(buffer);
 
-		std::cout << "0 - Quit" << std::endl;
 		std::cout << "1 - Stock Exchange Losses" << std::endl;
-		std::cout << "2 - /////////////////////" << std::endl << std::endl;
+		std::cout << "2 - War" << std::endl;
+		std::cout << "0 - Quit Program" << std::endl << std::endl;
 
 		std::cout << "Insert an ID to start a program: ";
 		size_t selection;
@@ -86,7 +108,7 @@ int main()
 			StockExchangeLossesProgram();
 			break;
 		case 2:
-			/////////
+			WarProgram();
 			break;
 		default:
 			std::cout << "Wrong ID, try again" << std::endl;

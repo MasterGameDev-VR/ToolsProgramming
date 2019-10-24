@@ -15,18 +15,24 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\..\..\..\Universita%27\Master\Tools Programming\Cancellieri\CodinGameMain\pch.h">
+    <ClInclude Include="..\..\..\..\..\Universita%27\Master\Tools Programming\Cancellieri\War\stdafx.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\..\Universita%27\Master\Tools Programming\Cancellieri\CodinGameMain\CodinGameMain.h">
+    <ClInclude Include="..\..\..\..\..\Universita%27\Master\Tools Programming\Cancellieri\War\targetver.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\Universita%27\Master\Tools Programming\Cancellieri\War\War.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\..\..\..\Universita%27\Master\Tools Programming\Cancellieri\CodinGameMain\pch.cpp">
+    <ClCompile Include="..\..\..\..\..\Universita%27\Master\Tools Programming\Cancellieri\War\stdafx.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\..\Universita%27\Master\Tools Programming\Cancellieri\CodinGameMain\CodinGameMain.cpp">
+    <ClCompile Include="..\..\..\..\..\Universita%27\Master\Tools Programming\Cancellieri\War\War.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\Universita%27\Master\Tools Programming\Cancellieri\War\dllmain.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

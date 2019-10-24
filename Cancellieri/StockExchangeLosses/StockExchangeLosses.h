@@ -12,7 +12,7 @@
 class StockExchangeLosses 
 {
 public:
-	STOCKEXCHANGELOSSES_API StockExchangeLosses(std::string fileName);
+	STOCKEXCHANGELOSSES_API StockExchangeLosses(std::string testFile);
 	STOCKEXCHANGELOSSES_API void Execute();
 
 private:
