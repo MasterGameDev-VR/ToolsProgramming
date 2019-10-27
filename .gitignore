@@ -52,3 +52,9 @@ Romano/PalindromicDecomposition/Debug/
 Romano/PalindromicDecomposition/x64/Debug/PalindromicDecomposition.pch
 Romano/NumberOfLettersInANumber/x64/Debug/NumberOfLettersInANumber.pch
 Romano/HiddenWord/x64/Debug/HiddenWord.pch
+=======
+Grasso/.vs/
+Grasso/**/x64/
+Grasso/**/[Dd]ebug/
+Grasso/**/[Rr]elease/
+Grasso/**/*.user
