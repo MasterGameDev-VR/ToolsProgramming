@@ -1,16 +1,16 @@
 #include "pch.h"
 #include "framework.h"
-#include "TheGift.h"
 #include <algorithm>
 #include <fstream>
 #include <iostream>
-
+#include "TheGift.h"
 
 TheGift::TheGift(const std::string& filename)
 	: m_budgets()
 {
 	std::ifstream in(filename);
-	auto cinbuf = std::cin.rdbuf(in.rdbuf());
+	auto backup = std::cin.rdbuf();
+	std::cin.rdbuf(in.rdbuf());
 
 	std::cin >> m_nParticipants; std::cin.ignore();
 	std::cin >> m_cost; std::cin.ignore();
@@ -22,6 +22,8 @@ TheGift::TheGift(const std::string& filename)
 
 		m_budgets.push(budget);
 	}
+
+	std::cin.rdbuf(backup);
 }
 
 void TheGift::Execute()
