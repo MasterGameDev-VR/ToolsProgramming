@@ -1,5 +1,6 @@
 Zamprogno/MayanCalculation/Debug/
 Zamprogno/MayanCalculation/.vs/
+Zamprogno/MayanCalculation/x64/Debug/
 <<<<<<< HEAD
 <<<<<<< HEAD
 Caldana/.vs/
@@ -52,6 +53,12 @@ Romano/PalindromicDecomposition/Debug/
 Romano/PalindromicDecomposition/x64/Debug/PalindromicDecomposition.pch
 Romano/NumberOfLettersInANumber/x64/Debug/NumberOfLettersInANumber.pch
 Romano/HiddenWord/x64/Debug/HiddenWord.pch
+=======
+Grasso/.vs/
+Grasso/**/x64/
+Grasso/**/[Dd]ebug/
+Grasso/**/[Rr]elease/
+Grasso/**/*.user
 ==============
 Cancellieri/.vs/
 Cancellieri/CodinGameMain/x64/Debug/
