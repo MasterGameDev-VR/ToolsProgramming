@@ -1,5 +1,6 @@
 Zamprogno/MayanCalculation/Debug/
 Zamprogno/MayanCalculation/.vs/
+Zamprogno/MayanCalculation/x64/Debug/
 <<<<<<< HEAD
 <<<<<<< HEAD
 Caldana/.vs/
@@ -58,3 +59,9 @@ Grasso/**/x64/
 Grasso/**/[Dd]ebug/
 Grasso/**/[Rr]elease/
 Grasso/**/*.user
+==============
+Cancellieri/.vs/
+Cancellieri/CodinGameMain/x64/Debug/
+Cancellieri/x64/
+Cancellieri/StockExchangeLosses/x64/Debug/
+Cancellieri/War/x64/Debug/
