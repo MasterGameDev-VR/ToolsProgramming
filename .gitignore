@@ -47,13 +47,17 @@ DiBernardo/CodinGameMain/x64/
 DiBernardo/ChuckNorris/x64/
 DiBernardo/StockExchangeLosses/x64/
 =======
+Romano/.vs/
 Romano/Debug/
+Romano/x64/Debug/
+Romano/CodinGameMain/Debug/
 Romano/HiddenWord/Debug/
 Romano/NumberOfLettersInANumber/Debug/
 Romano/PalindromicDecomposition/Debug/
-Romano/.vs/
+Romano/PalindromicDecomposition/x64/Debug/PalindromicDecomposition.pch
+Romano/NumberOfLettersInANumber/x64/Debug/NumberOfLettersInANumber.pch
+Romano/HiddenWord/x64/Debug/HiddenWord.pch
 =======
-
 Gullotta/.vs/
 Gullotta/Debug/
 Gullotta/x64/Debug/
@@ -61,4 +65,9 @@ Gullotta/CodinGameMain/Debug/
 Gullotta/CodinGameMain/x64/
 Gullotta/SumofDivisors/x64/Debug/
 Gullotta/THESE ROMANS ARE CRAZY!/x64/Debug/
-
+=======
+Grasso/.vs/
+Grasso/**/x64/
+Grasso/**/[Dd]ebug/
+Grasso/**/[Rr]elease/
+Grasso/**/*.user
