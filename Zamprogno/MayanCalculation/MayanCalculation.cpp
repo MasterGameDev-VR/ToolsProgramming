@@ -6,12 +6,11 @@
 
 using namespace std;
 
-MayanCalculation::MayanCalculation(char *fileName)
+MayanCalculation::MayanCalculation(const string& filename)
 {
-	//std::ifstream in(fileName);
-	//auto cinbuf = std::cin.rdbuf(in.rdbuf());
-
-	ifstream input(fileName);
+	ifstream input(filename);
+	auto backup = cin.rdbuf();
+	cin.rdbuf(input.rdbuf());
 
 	input >> L >> H; input.ignore();
 	for (int i = 0; i < 20; ++i)
@@ -47,6 +46,8 @@ MayanCalculation::MayanCalculation(char *fileName)
 
 	operation;
 	input >> operation; input.ignore();
+
+	cin.rdbuf(backup);
 }
 
 void MayanCalculation::Execute()
@@ -82,9 +83,9 @@ void MayanCalculation::Execute()
 	else if (operation.compare("-") == 0)
 		firstNumber -= secondNumber;
 	else if (operation.compare("*") == 0)
-		secondNumber *= firstNumber;
+		firstNumber *= secondNumber;
 	else if (operation.compare("/") == 0)
-		secondNumber /= firstNumber;
+		firstNumber /= secondNumber;
 
 	vector<int> digits;
 	double power = 1.0;
@@ -97,7 +98,7 @@ void MayanCalculation::Execute()
 	} while ((int)firstNumber > 0);
 
 
-	for (auto digit : digits)
+	for(auto it = digits.rbegin(); it != digits.rend(); ++it)
 		for (int i = 0; i < H; ++i)
-			cout << numbers[digit].digit[i] << endl;
+			cout << numbers[*it].digit[i] << endl;
 }

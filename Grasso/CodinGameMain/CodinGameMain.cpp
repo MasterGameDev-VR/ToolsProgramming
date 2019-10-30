@@ -1,5 +1,6 @@
 #include "TheGift.h"
 #include "War.h"
+#include "MayanCalculation.h"
 #include <iostream>
 
 
@@ -25,10 +26,11 @@ void RunExercise(std::string filename)
 
 int main()
 {
-	const int MAX_EXERCISES = 2;
+	const int MAX_EXERCISES = 3;
 	Exercise exercises[MAX_EXERCISES];
 	exercises[0] = { "The Gift", "..\\TheGift\\Tests", "TheGift_", "txt", 9, &RunExercise<TheGift> };
 	exercises[1] = { "War", "..\\War\\Tests", "War_", "txt", 9, &RunExercise<War> };
+	exercises[2] = { "Mayan Calculation", "..\\..\\Zamprogno\\MayanCalculation\\Tests", "MayanCalculation_", "txt", 12, &RunExercise<MayanCalculation> };
 
 	int action;
 	do {
