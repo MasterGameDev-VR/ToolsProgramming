@@ -1,9 +1,11 @@
 #include "../Temperatures/Temperatures.h"
 #include "../Horse-racing Duals/HorseRacingDuals.h"
+#include "../../Zamprogno/MayanCalculation/MayanCalculation.h"
 #include <iostream>
 
 const int temperatures_testCases = 6;
 const int horseRacingDuals_testCases = 3;
+const int mayanCalculation_testCases = 12;
 
 int inputSelection(int maxTestCase) {
 	std::cout << "Seleziona un input da 1 a " + std::to_string(maxTestCase) << std::endl;
@@ -34,6 +36,14 @@ void horseRacingDuals() {
 	horseRacing.Execute();
 }
 
+void mayanCalculation() {
+	int input_selection = inputSelection(mayanCalculation_testCases);
+	if (input_selection < 0) return;
+	std::cout << "> Test " + std::to_string(input_selection) + ":\n";
+	MayanCalculation mayan("../../Zamprogno/MayanCalculation/TestCases/MayanCalculation_" + std::to_string(input_selection) + ".txt");
+	mayan.Execute();
+}
+
 void runAll() {
 	std::cout << "Esecuzione Temperatures:" << std::endl;
 	for (int i = 1; i <= temperatures_testCases; i++)
@@ -57,6 +67,7 @@ int main()
 	std::cout << "0 - Esegui tutti" << std::endl;
 	std::cout << "1 - Temperatures" << std::endl;
 	std::cout << "2 - Horse-racing Duals" << std::endl;
+	std::cout << "3 - Mayan Calculation" << std::endl;
 
 	int exercise_selection;
 	std::cin >> exercise_selection; std::cin.ignore();
@@ -70,6 +81,9 @@ int main()
 		break;
 	case 2:
 		horseRacingDuals();
+		break;
+	case 3:
+		mayanCalculation();
 		break;
 	default:
 		std::cout << "Selezione errata.";

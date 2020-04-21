@@ -154,6 +154,9 @@
     <ClCompile Include="CodinGameMain.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\Zamprogno\MayanCalculation\MayanCalculation.vcxproj">
+      <Project>{e714e622-aad0-41f8-b654-b4ceeb1fcef9}</Project>
+    </ProjectReference>
     <ProjectReference Include="..\Horse-racing Duals\Horse-racing Duals.vcxproj">
       <Project>{07808964-b161-40a5-a560-f9b4f1eee377}</Project>
     </ProjectReference>
