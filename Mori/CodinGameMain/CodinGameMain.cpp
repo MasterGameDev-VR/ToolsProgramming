@@ -1,6 +1,8 @@
+#include "../Temperatures/Temperatures.h"
 #include <iostream>
 
 int main()
 {
-    std::cout << "Hello World!\n";
+	Temperatures temp("../Temperatures/TestCases/Temperatures_1.txt");
+	temp.Execute();
 }
