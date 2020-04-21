@@ -7,6 +7,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CodinGameMain", "CodinGameM
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Temperatures", "Temperatures\Temperatures.vcxproj", "{F3DD3A72-FBCC-45D6-9A93-63A058835F73}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Horse-racing Duals", "Horse-racing Duals\Horse-racing Duals.vcxproj", "{07808964-B161-40A5-A560-F9B4F1EEE377}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -31,6 +33,14 @@ Global
 		{F3DD3A72-FBCC-45D6-9A93-63A058835F73}.Release|x64.Build.0 = Release|x64
 		{F3DD3A72-FBCC-45D6-9A93-63A058835F73}.Release|x86.ActiveCfg = Release|Win32
 		{F3DD3A72-FBCC-45D6-9A93-63A058835F73}.Release|x86.Build.0 = Release|Win32
+		{07808964-B161-40A5-A560-F9B4F1EEE377}.Debug|x64.ActiveCfg = Debug|x64
+		{07808964-B161-40A5-A560-F9B4F1EEE377}.Debug|x64.Build.0 = Debug|x64
+		{07808964-B161-40A5-A560-F9B4F1EEE377}.Debug|x86.ActiveCfg = Debug|Win32
+		{07808964-B161-40A5-A560-F9B4F1EEE377}.Debug|x86.Build.0 = Debug|Win32
+		{07808964-B161-40A5-A560-F9B4F1EEE377}.Release|x64.ActiveCfg = Release|x64
+		{07808964-B161-40A5-A560-F9B4F1EEE377}.Release|x64.Build.0 = Release|x64
+		{07808964-B161-40A5-A560-F9B4F1EEE377}.Release|x86.ActiveCfg = Release|Win32
+		{07808964-B161-40A5-A560-F9B4F1EEE377}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
