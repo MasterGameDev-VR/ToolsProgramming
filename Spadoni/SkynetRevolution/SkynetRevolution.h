@@ -2,8 +2,9 @@
 
 #include <string>
 #include <vector>
+#include "IGame.h"
 
-class SkynetRevolution
+class SkynetRevolution : public IGame
 {
 public:
 	__declspec(dllexport) SkynetRevolution(std::string filePath = "");

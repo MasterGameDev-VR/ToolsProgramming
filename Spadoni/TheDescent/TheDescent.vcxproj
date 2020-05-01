@@ -20,8 +20,8 @@
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
-    <ProjectGuid>{22538FDC-E8BE-4895-8973-FC9F3C1C1585}</ProjectGuid>
-    <RootNamespace>SkynetRevolution</RootNamespace>
+    <ProjectGuid>{5F70C35A-0A65-4266-AD6A-7163D00A1005}</ProjectGuid>
+    <RootNamespace>TheDescent</RootNamespace>
     <WindowsTargetPlatformVersion>10.0.16299.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -70,10 +70,10 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <IncludePath>../CodinGameMain;$(IncludePath)</IncludePath>
+    <IncludePath>../CodingGame;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <IncludePath>../CodinGameMain;$(VC_IncludePath);$(WindowsSDK_IncludePath);</IncludePath>
+    <IncludePath>../CodingGame;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
@@ -120,10 +120,10 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="SkynetRevolution.cpp" />
+    <ClInclude Include="TheDescent.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="SkynetRevolution.h" />
+    <ClCompile Include="TheDescent.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

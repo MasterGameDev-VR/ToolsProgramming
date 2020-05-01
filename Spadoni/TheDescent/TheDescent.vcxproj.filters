@@ -15,18 +15,12 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="pch.h">
-      <Filter>File di intestazione</Filter>
-    </ClInclude>
-    <ClInclude Include="IGame.h">
+    <ClInclude Include="TheDescent.h">
       <Filter>File di intestazione</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="pch.cpp">
-      <Filter>File di origine</Filter>
-    </ClCompile>
-    <ClCompile Include="main.cpp">
+    <ClCompile Include="TheDescent.cpp">
       <Filter>File di origine</Filter>
     </ClCompile>
   </ItemGroup>
